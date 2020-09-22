@@ -41,11 +41,6 @@ public class string_generator_loop {
 
 		printAllCombinations(str);
 		
-		
-
-		
-			
-
 			
 		}
 		
