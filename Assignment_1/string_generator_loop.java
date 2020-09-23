@@ -20,7 +20,7 @@ public class string_generator_loop {
 			// pattern in curr
 			if ((index_star = string1.indexOf('*')) != -1)
 			{
-				// replace '?' with 0 and 1 and push it to the stack
+				// replace '*' with 0 and 1 and push it to the stack
 				for (char chr = '0'; chr <= '1'; chr++)
 				{
 					string1 = string1.substring(0, index_star) + chr +
