@@ -4,7 +4,7 @@ public class string_generator_loop {
 	public static void printAllCombinations(String input_string)
 	{
 		// creating an empty stack 
-		Stack<String> stack = new Stack();
+		Stack<String> stack = new Stack<String>();
 		// pushing the pattern into the stack
 		stack.push(input_string);		
 
