@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.Scanner;
 
 public class string_generator {
@@ -35,6 +34,7 @@ public class string_generator {
 		System.out.println("please enter a string: ");
 		Scanner sc= new Scanner(System.in);
 		String str= sc.nextLine();
+		sc.close();
 		 
 		
         char[] arr = str.toCharArray(); 
