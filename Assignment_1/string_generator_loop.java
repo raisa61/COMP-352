@@ -31,16 +31,43 @@ public class string_generator_loop {
 
 			// If no wildcard pattern is found, print the string
 			else
-				System.out.println(string1);
+				{
+				//System.out.println(string1);
+				try {
+				      FileWriter myWriter = new FileWriter("out_2.txt",true);
+				      myWriter.write(string1 + "\n");
+				      
+				      myWriter.close();
+				}
+				 catch (IOException e) {
+				      System.out.println("An error occurred.");
+				      e.printStackTrace();
+				    }
+
+				}
 		}
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		String str = "1*11";
+		try {
+		      File myObj = new File("out_2.txt");
+		      if (myObj.createNewFile()) {
+		        System.out.println("File created: " + myObj.getName());
+		      } else {
+		        System.out.println("File already exists.");
+		      }
+		    } catch (IOException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+
+		System.out.println("please enter a string: ");
+		Scanner sc= new Scanner(System.in);
+		String str= sc.nextLine();
+		
 
 		printAllCombinations(str);
-		
 			
 		}
 		
