@@ -9,6 +9,6 @@ if input_string[index] = '*'
 	string_generate(input_string, index + 1)
 	input_string[index] <- '1'
 	string_generate(input_string, index + 1)
-	input_string[index] = '*';
+	input_string[index] = '*'
 else
 	string_generate(input_string, index + 1)
