@@ -1,0 +1,14 @@
+v1:
+
+Class string_generate(char []input_string, int index )
+
+if index = input_string.length
+	Print input_string
+if input_string[index] = '*'
+	input_string[index] <- '0'
+	string_generate(input_string, index + 1)
+	input_string[index] <- '1'
+	string_generate(input_string, index + 1)
+	input_string[index] = '*';
+else
+	string_generate(input_string, index + 1)
