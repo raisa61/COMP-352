@@ -1,4 +1,8 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Stack;
+import java.io.File;
+import java.util.Scanner;
 public class string_generator_loop {
 
 	public static void printAllCombinations(String input_string)
@@ -65,6 +69,7 @@ public class string_generator_loop {
 		System.out.println("please enter a string: ");
 		Scanner sc= new Scanner(System.in);
 		String str= sc.nextLine();
+		sc.close();
 		
 
 		printAllCombinations(str);
