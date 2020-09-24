@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class string_generator {
 	
@@ -38,8 +39,12 @@ public class string_generator {
 		 
 		
         char[] arr = str.toCharArray(); 
-        
+              long startTime = System.nanoTime();
 		string_generate(arr,0);
+		long  endTime = System.nanoTime();
+		long timeElapsed = endTime - startTime;
+		System.out.println("Execution time in milliseconds : " +
+				timeElapsed / 1000000);	
 	}
 
 	}
