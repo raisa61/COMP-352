@@ -1,5 +1,6 @@
 //O(2^n)
 import java.io.FileWriter;
+import java.util.concurrent.TimeUnit;
 import java.io.IOException;
 import java.util.Stack;
 import java.io.File;
@@ -72,8 +73,12 @@ public class string_generator_loop {
 		String str= sc.nextLine();
 		sc.close();
 		
-
+                long startTime = System.nanoTime();
 		printAllCombinations(str);
+		long  endTime = System.nanoTime();
+		long timeElapsed = endTime - startTime;
+		System.out.println("Execution time in milliseconds : " +
+				timeElapsed / 1000000);
 			
 		}
 		
