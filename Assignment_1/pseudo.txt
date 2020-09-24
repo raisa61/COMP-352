@@ -1,14 +1,31 @@
 v1:
 
-Class string_generate(char []input_string, int index )
+??Class string_generate(char []input_string, int index )
 
-if index = input_string.length
-	Print input_string
-if input_string[index] = '*'
+IF index = input_string.length
+	PRINT input_string
+IF input_string[index] = '*'
 	input_string[index] <- '0'
 	string_generate(input_string, index + 1)
 	input_string[index] <- '1'
 	string_generate(input_string, index + 1)
 	input_string[index] = '*'
-else
+ELSE
 	string_generate(input_string, index + 1)
+	
+	
+	
+V2:
+
+STACK stack(String)
+stack.push(input_string)
+INTEGER index_star
+WHILE !stack.empty()
+	STRING string1 <- stack.pop()
+	IF (index_star <- string1.indexOf(‘*’))!= -1
+		FOR CHAR chr <- ‘0’ to chr <- ‘1’
+			string1 <-string1.substring(0, index_star) + chr + string1.substring(index_star + 1)
+			stack.push(string1)
+		INCREMENT chr
+	ELSE
+		PRINT string1
