@@ -1,0 +1,13 @@
+*(2)     time taken: 4 milliseconds
+*(4)     time taken: 10 milliseconds
+*(6)     time taken: 57 milliseconds
+*(8)     time taken: 204 milliseconds
+*(10)    time taken: 345 milliseconds
+*(12)    time taken: 1283 milliseconds
+*(14)    time taken: 5047 milliseconds
+*(16)    time taken: 19973 milliseconds
+*(18)    time taken: 91540 milliseconds
+*(20)    time taken: 502924 milliseconds
+
+
+
