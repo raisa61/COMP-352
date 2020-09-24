@@ -1,6 +1,7 @@
 v1:
 
-??Class string_generate(char []input_string, int index )
+Method string_generate 
+Input A character array, index
 
 IF index = input_string.length
 	PRINT input_string
@@ -16,6 +17,8 @@ ELSE
 	
 	
 V2:
+Method string_generate 
+Input A string
 
 STACK stack(String)
 stack.push(input_string)
