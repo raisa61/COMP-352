@@ -1,0 +1,70 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class string_generator {
+	
+//solving with recursion
+	public static void string_generate(PrintWriter myWriter,char []input_string, int index ) {
+		for (int i=0; i< input_string.length; i++) {
+		if (index == input_string.length) 
+        { 
+            myWriter.println(input_string); 
+            return; 
+        } 
+  
+		else if (input_string[index] == '*') 
+        { 
+            
+            input_string[index] = '0'; 
+            string_generate(myWriter, input_string, index + 1); 
+              
+            
+            input_string[index] = '1'; 
+            string_generate(myWriter,input_string, index + 1); 
+              
+            
+            input_string[index] = '*'; 
+        } 
+		}
+		 
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	
+		      FileWriter fw;
+			try {
+				fw = new FileWriter("out.txt",true);
+
+		      //writing output to out.txt
+		      PrintWriter pw = new PrintWriter(fw);
+          //Kim:need to find a way to connect the println from the class to this pw, currently don't remember how
+		
+		System.out.println("please enter a string: ");
+		Scanner sc= new Scanner(System.in);
+		String str= sc.nextLine();
+		sc.close();
+		 
+		
+        char[] arr = str.toCharArray(); 
+        
+        
+              long startTime = System.nanoTime();
+              //Kim: not sure about the null here
+		string_generate(null, arr,0);
+		long  endTime = System.nanoTime();
+		long timeElapsed = endTime - startTime;
+		System.out.println("Execution time in milliseconds : " +
+				timeElapsed / 1000000);	
+	}
+			
+     catch (IOException e) {
+	      System.out.println("An error occurred.");
+	      e.printStackTrace();
+	    }
+
+	}
+}
