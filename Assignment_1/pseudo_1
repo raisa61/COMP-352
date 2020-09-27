@@ -1,0 +1,13 @@
+Method string_generate 
+Input A character array, index
+
+IF index = input_string.length
+	PRINT input_string
+IF input_string[index] = '*'
+	input_string[index] <- '0'
+	string_generate(input_string, index + 1)
+	input_string[index] <- '1'
+	string_generate(input_string, index + 1)
+	input_string[index] = '*'
+ELSE
+	string_generate(input_string, index + 1)
