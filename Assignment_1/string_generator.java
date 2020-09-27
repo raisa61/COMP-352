@@ -1,3 +1,7 @@
+/**
+ * @author1 Kimiya Derakhshani
+ * @author2 Raisa Zaman
+ */
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -5,7 +9,15 @@ import java.util.Scanner;
 
 public class string_generator {
 
-/* solving with recursion */
+	/** 
+	 * solving with recursion 
+	 */
+	/**
+	 *  @param input_string the value entered by the user
+	 */
+	/**
+	 *  @param index the number of the index in the array
+	 */
 	public static void RevealStr(char []input_string, int index ) {
 		if (index == input_string.length) 
         { 
@@ -14,7 +26,9 @@ public class string_generator {
 			{
 			try {
 			      FileWriter myWriter = new FileWriter("out_1.txt",true);
-			     /* converting the array into a printable string */  
+			     /** 
+			      * converting the array into a printable string 
+			      */  
 			      String string = new String(input_string);
 			      
 			      myWriter.write(string+ "\n");
@@ -30,7 +44,9 @@ public class string_generator {
             
             return; 
         } 
-  
+		 /**
+		  *  changing *s to 1s and 0s 
+		  */ 
         if (input_string[index] == '*') 
         { 
             
@@ -64,13 +80,17 @@ public class string_generator {
 		      e.printStackTrace();
 		    }
 		
-		/* getting the string value from user */
+		/**
+		 *  getting the string value from user 
+		 */
 		System.out.println("please enter a string: ");
 		Scanner sc= new Scanner(System.in);
 		String str= sc.nextLine();
 		sc.close();
 		 
-		
+		/** 
+		 * getting the execution time 
+		 */
         char[] arr = str.toCharArray(); 
               long startTime = System.nanoTime();
 		RevealStr(arr,0);
