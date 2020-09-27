@@ -10,16 +10,16 @@ of *, the time keeps increasing. We can see from the track records that it is
 not a linear increase, the time is not constant and it's not logarithmic or factorial
 either. So we are left with the exponential function. And from the record, we can tell
 that the time complexity which matches the most with our algorithm is, O(2^n).
-??space complexity??
+As for the space complexity the recursive calls happen linerlay (n is the maximum depth of recursion tree generated) that's why 
+the complexity of space is O(n).
 
 For the iterative function, we decided to use stack, we push the input string in 
-the stack, then we enter the loop and pop the string for processing it. We use 
-another loop to check if the input string has a * char, if it does, we process the 
-input string accordingly and push it to the stack.
+the stack, then we enter the loop and pop the string for processing it. This stack is the reason why we have space
+complexity of O(n). We use another loop to check if the input string has a * char, if it does, we process the 
+input string accordingly and push it to the stack. It's good to note that push and pop both take constant (O(1)) time.
 
 From the track_loop.txt file, again, based on the same reason stated above, 
 the time complexity of this algorithm is, O(2^n)
-??space complexity??
 
 If we try to compare both of the algorithms' complexities, we can see that both of them have
-the same time complexity, which is O(2^n). ??space complexity??
+the same time complexity, which is O(2^n). Both also have the same space complexity O(n).
