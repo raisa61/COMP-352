@@ -1,6 +1,4 @@
-//O(2^n)
 import java.io.FileWriter;
-import java.util.concurrent.TimeUnit;
 import java.io.IOException;
 import java.util.Stack;
 import java.io.File;
@@ -9,21 +7,20 @@ public class string_generator_loop {
 
 	public static void printAllCombinations(String input_string)
 	{
-		// creating an empty stack 
+		/* creating an empty stack */
 		Stack<String> stack = new Stack<String>();
-		// pushing the pattern into the stack
+		/* pushing the pattern into the stack */
 		stack.push(input_string);		
 
 		int index_star;
 
-		// looping till stack is empty
+		/* looping till stack is empty */
 		while (!stack.empty())
 		{
-			// popping string from stack and process it
+			/* popping string from stack and process it */
 			String string1 = stack.pop();
 
-			// index_star stores position of first occurrence of wildcard
-			// pattern in curr
+			/* index_star stores position of first occurrence of wildcard */
 			if ((index_star = string1.indexOf('*')) != -1)
 			{
 				// replace '*' with 0 and 1 and push it to the stack
@@ -35,7 +32,7 @@ public class string_generator_loop {
 				}
 			}
 
-			// If no wildcard pattern is found, print the string
+			/* If no wildcard pattern is found, print the string */
 			else
 				{
 				//System.out.println(string1);
@@ -54,7 +51,6 @@ public class string_generator_loop {
 		}
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		try {
 		      File myObj = new File("out_2.txt");
@@ -73,7 +69,8 @@ public class string_generator_loop {
 		String str= sc.nextLine();
 		sc.close();
 		
-                long startTime = System.nanoTime();
+		/* getting the execution time */
+        long startTime = System.nanoTime();
 		printAllCombinations(str);
 		long  endTime = System.nanoTime();
 		long timeElapsed = endTime - startTime;
@@ -85,5 +82,3 @@ public class string_generator_loop {
 			
 
 	}
-
-
