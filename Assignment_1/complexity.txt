@@ -20,3 +20,6 @@ input string accordingly and push it to the stack.
 From the track_loop.txt file, again, based on the same reason stated above, 
 the time complexity of this algorithm is, O(2^n)
 ??space complexity??
+
+If we try to compare both of the algorithms' complexities, we can see that both of them have
+the same time complexity, which is O(2^n). ??space complexity??
