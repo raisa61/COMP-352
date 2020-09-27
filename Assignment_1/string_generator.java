@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class string_generator {
 
 /* solving with recursion */
-	public static void string_generate(char []input_string, int index ) {
+	public static void RevealStr(char []input_string, int index ) {
 		if (index == input_string.length) 
         { 
             //System.out.println(input_string); 
@@ -14,9 +14,7 @@ public class string_generator {
 			{
 			try {
 			      FileWriter myWriter = new FileWriter("out_1.txt",true);
-			                /* remove trailing spaces from partially initialized arrays */
-			      
-			      //myWriter.write(Arrays.toString(input_string).replace("[", "").replace("]", "").replace(",", "") + "\n");
+			     /* converting the array into a printable string */  
 			      String string = new String(input_string);
 			      
 			      myWriter.write(string+ "\n");
@@ -37,17 +35,17 @@ public class string_generator {
         { 
             
             input_string[index] = '0'; 
-            string_generate(input_string, index + 1); 
+            RevealStr(input_string, index + 1); 
               
             
             input_string[index] = '1'; 
-            string_generate(input_string, index + 1); 
+            RevealStr(input_string, index + 1); 
               
             
             input_string[index] = '*'; 
         } 
         else
-            string_generate(input_string, index + 1); 
+            RevealStr(input_string, index + 1); 
 		
 		 
 	}
@@ -66,7 +64,7 @@ public class string_generator {
 		      e.printStackTrace();
 		    }
 		
-		// TODO Auto-generated method stub
+		/* getting the string value from user */
 		System.out.println("please enter a string: ");
 		Scanner sc= new Scanner(System.in);
 		String str= sc.nextLine();
@@ -75,7 +73,7 @@ public class string_generator {
 		
         char[] arr = str.toCharArray(); 
               long startTime = System.nanoTime();
-		string_generate(arr,0);
+		RevealStr(arr,0);
 		long  endTime = System.nanoTime();
 		long timeElapsed = endTime - startTime;
 		System.out.println("Execution time in milliseconds : " +
