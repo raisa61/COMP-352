@@ -1,3 +1,8 @@
+/**
+ * @author1 Kimiya Derakhshani
+ * @author2 Raisa Zaman
+ */
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Stack;
@@ -5,13 +10,14 @@ import java.io.File;
 import java.util.Scanner;
 public class string_generator_loop {
 
+	/* @param input_string, the string that user enters */
 	public static void printAllCombinations(String input_string)
 	{
 		/* creating an empty stack */
 		Stack<String> stack = new Stack<String>();
 		/* pushing the pattern into the stack */
 		stack.push(input_string);		
-
+		/* index_star stores position of first occurrence of a * */
 		int index_star;
 
 		/* looping till stack is empty */
