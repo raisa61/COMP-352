@@ -1,0 +1,22 @@
+For the recursive function, if we reach a character which is *, 
+we replace the * with either 1 or 0 and increase the index by 1, 
+so that it can traverse through the whole string and look for * chars,
+in the end, we do backtracking to make sure we did not miss any possible 
+combination. The base case is when the index will be of the same length
+of the input string, meaning that we have reached the end of the string.
+
+From the track_recursive.txt file, we can see that as we increase the number
+of *, the time keeps increasing. We can see from the track records that it is 
+not a linear increase, the time is not constant and it's not logarithmic or factorial
+either. So we are left with the exponential function. And from the record, we can tell
+that the time complexity which matches the most with our algorithm is, O(2^n).
+??space complexity??
+
+For the iterative function, we decided to use stack, we push the input string in 
+the stack, then we enter the loop and pop the string for processing it. We use 
+another loop to check if the input string has a * char, if it does, we process the 
+input string accordingly and push it to the stack.
+
+From the track_loop.txt file, again, based on the same reason stated above, 
+the time complexity of this algorithm is, O(2^n)
+??space complexity??
