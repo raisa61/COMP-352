@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Random;
 
 public class MagicBoard_iterative {
 	
@@ -19,6 +21,7 @@ public class MagicBoard_iterative {
 //taking user input for the board size
 		boolean size_condition=false;
 		int size = 0;
+		int start_index=0;
 		while(!size_condition) 
 		{
 		     System.out.println("Please input the size of the board (between 5 and 20): ");
@@ -47,7 +50,7 @@ public class MagicBoard_iterative {
 		while(!start_index_condition)
 		{
 		     System.out.println("Enter your option: ");
-		     int start_index=sc.nextInt();
+		     start_index=sc.nextInt();
 		     
 		     if ((start_index<1) || (start_index>4)) 
 		     {
@@ -71,21 +74,71 @@ public class MagicBoard_iterative {
 		    }
 		}
 		
-//printing the array in a matrix format for testing without zero
+
+		
+//making changes according to the start index so that after choosing the index, it's never 0
+		if (start_index==1) {
+			board[0][0]= 1+(int)(Math.random()*(size-1));
+			
+                        /*making one cell zero based on the chosen start_index, 
+			if the random values are the row and col of the start index, 
+			just choose the next cell for 0*/
+			int zero_row=(int)(Math.random()*size-1);
+			int zero_column=(int)(Math.random()*size-1);
+			if((zero_row !=0) && (zero_column !=0))
+			{
+			   board[zero_row][zero_column]=0;
+			}
+			else
+			{
+				 board[zero_row+1][zero_column+1]=0;
+			}
+			
+		}
+		if (start_index==2) {
+			board[0][size-1]= 1+(int)(Math.random()*(size-1));
+			
+			int zero_row=(int)(Math.random()*size-1);
+			int zero_column=(int)(Math.random()*size-1);
+			if((zero_row !=0) && (zero_column !=size-1))
+			{
+			   board[zero_row][zero_column]=0;
+			}
+			else
+			{
+				 board[zero_row+1][zero_column+1]=0;
+			}
+		}
+		if (start_index==3) {
+			board[size-1][0]= 1+(int)(Math.random()*(size-1));
+			int zero_row=(int)(Math.random()*size-1);
+			int zero_column=(int)(Math.random()*size-1);
+			if((zero_row !=size-1) && (zero_column !=0))
+			{
+			   board[zero_row][zero_column]=0;
+			}
+			else
+			{
+				 board[zero_row+1][zero_column+1]=0;
+			}
+		}
+		if (start_index==4) {
+			board[size-1][size-1]= 1+(int)(Math.random()*(size-1));
+			int zero_row=(int)(Math.random()*size-1);
+			int zero_column=(int)(Math.random()*size-1);
+			if((zero_row !=size-1) && (zero_column !=size-1))
+			{
+			   board[zero_row][zero_column]=0;
+			}
+			else
+			{
+				 board[zero_row+1][zero_column+1]=0;
+			}
+		}
+		
+//printing the final board
 		for(int[] row : board) {
             printRow(row);
-        }
-
-		System.out.println();
-		System.out.println();
-		
-//printing the array with random 0 cell
-		int zero_row=(int)(Math.random()*size);
-		int zero_column=(int)(Math.random()*size);
-		board[zero_row][zero_column]=0;
-
-		for(int[] row : board) {
-                printRow(row);
         }
 		
 		
