@@ -1,0 +1,6 @@
+Iterative :
+Make the board
+Put the start index in the stack
+Define a method called random_direction_generator (to choose a random direction top, button, right, left)
+Make another method called Is_valid_move which takes the random direction from the method above (using a switch case) and then check if the move is valid or not.
+Define a do while loop, first you push the start index in the stack, then you call the is_valid_move and move the circle, when the circle moves, pop the value from the stack, and push the new index in the stack. Keep repeating until you have 0 in the stack. Once you reach 0, game is finished.
