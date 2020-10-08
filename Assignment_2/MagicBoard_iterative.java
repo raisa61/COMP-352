@@ -63,15 +63,29 @@ public class MagicBoard_iterative {
 
 //creating a board with the given size
 		int board [] [] = new int [size] [size];
+
+//filling the rest of the cells with other numbers except 0
 		for (int i = 0; i < board.length; i++) {
 		    for (int j = 0; j < board[i].length; j++) {
 		        board[i][j] = 1+(int)(Math.random()*(size-1));
 		    }
 		}
 		
-//printing the array in a matrix format
+//printing the array in a matrix format for testing without zero
 		for(int[] row : board) {
             printRow(row);
+        }
+
+		System.out.println();
+		System.out.println();
+		
+//printing the array with random 0 cell
+		int zero_row=(int)(Math.random()*size);
+		int zero_column=(int)(Math.random()*size);
+		board[zero_row][zero_column]=0;
+
+		for(int[] row : board) {
+                printRow(row);
         }
 		
 		
