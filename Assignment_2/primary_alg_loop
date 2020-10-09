@@ -20,3 +20,7 @@ while (t>0){
   j++;
   t--:
 }
+
+//for checking the validity 
+if (i-1<t)
+  var=not valid;
