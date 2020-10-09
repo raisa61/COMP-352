@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class MagicBoard_iterative {
 	
@@ -14,8 +13,8 @@ public class MagicBoard_iterative {
     }
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc= new Scanner(System.in);
+		
 		
 //taking user input for the board size
 		boolean size_condition=false;
@@ -139,8 +138,9 @@ public class MagicBoard_iterative {
 		for(int[] row : board) {
             printRow(row);
         }
-		
+		sc.close();
 		
 	}
+	
 
 }
