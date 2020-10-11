@@ -12,6 +12,73 @@ public class MagicBoard_iterative {
         System.out.println();
     }
 
+/*the commenting part starts here, move all this to the player class
+/**
+ * @param args
+ * choosing a random direction from an array containing top, right,left,bottom
+ */
+	public static String choose_direction() {
+		String [] directions= {"top","bottom","right","left"};
+		String chosen_direction = directions[new Random().nextInt(directions.length)];
+		return chosen_direction;	
+	}
+/**
+ * @param args
+ * method to check if moving top is possible
+ */
+	public static boolean checktop() {
+		int value= board[i][j];
+		if (value<=i) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+/**	
+ * @param args
+ * method to check if moving bottom is possible
+ */
+	public static boolean checkbottom() {
+		int value=board[i][j];
+		if(value<size-i) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+/**
+ * method to check if moving left is possible
+ * @param args
+ */
+	public static boolean checkleft() {
+		int value=board[i][j];
+		if(value<j-1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+/**
+ * method to check if moving right is possible
+ * @param args
+ */
+	public static boolean checkright() {
+		int value=board[i][j];
+		if(value<size-columns) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}*/
+//the commenting part ends here
+
 	public static void main(String[] args) {
 		Scanner sc= new Scanner(System.in);
 		
