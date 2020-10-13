@@ -205,9 +205,7 @@ public static void printRow(int[] row) {
 		for(int[] row : board) {
             printRow(row);
         }
-		
 	
-		
 		boolean [] [] flag = new boolean [size][size];
 		
       
