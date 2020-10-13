@@ -177,7 +177,7 @@ public static void printRow(int[] row) {
         }
 		
 		System.out.println(traverse(start_row,start_col,board));
-
+		sc.close();
 	}
 
 }
