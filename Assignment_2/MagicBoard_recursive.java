@@ -60,9 +60,6 @@ public class MagicBoard_recursive {
 				adjacent_cells[3] = west;
 			}
 			
-			
-			
-			
 			/**
 			 *  for loop to explore all the adjacent cells of a cell
 			 */
