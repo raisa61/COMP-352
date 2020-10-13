@@ -1,86 +1,80 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MagicBoard_recursive {
 	
-    public static boolean traverse(int i,int j, int[] [] board, ArrayList<int []> positions) {
-    	
-    	/**
-    	 * pushing the array of positions in the arraylist
-    	 */
-    	int[] position= {i,j};
-    	positions.add(position);
-    	
-    	if(board[i][j] == 0) {        
-            System.out.println("We are at the final position (" + i + "," + j + ")");
-            return true; 
-    	}
-    	else {
-    		/**
-    		 * for moving top
-    		 */
-    		if(board[i][j]<=i) {
-    			/**
-    			 * checking if the cell has been visited before
-    			 */
-    			int[]temp1= {i - board[i][j], j};
-    			if(positions.contains(temp1))
-    				return false;
-    			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i-board[i][j]) +"]  ["+j+"]");
-    			return traverse(i - board[i][j], j ,board,positions);
-    			
-    		}
-    		
-    		/**
-    		 * for moving bottom
-    		 */
-    		if(board[i][j]<board.length-i) {
-    			/**
-    			 * checking if the cell has been visited before
-    			 */
-    			int[] temp2= {i + board[i][j], j};
-    			if (positions.contains(temp2))
-    				return false;
-    			
-    			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i+board[i][j]) +"]  ["+j+"]");
-    			return traverse(i + board[i][j], j ,board,positions); 
-    		}
-    		/**
-    		 * for moving left
-    		 */
-    		if(board[i][j]<j-1) {
-    			/**
-    			 * checking if the cell has been visited before
-    			 */
-    			int[] temp3= {i,j-board[i][j]};
-    			if(positions.contains(temp3))
-    				return false;
-    			
-    			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i) +"]  ["+ (j-board[i][j]) +"]");
-    			return traverse(i,j-board[i][j],board,positions);	
-    		}
-    		
-    		/**
-    		 * for moving right
-    		 */
-    		if(board[i][j]<board.length-j) {
-    			/**
-    			 * checking if the cell has been visited before
-    			 */
-    			int[] temp4= {i,j+board[i][j]};
-    			if(positions.contains(temp4))
-    				return false;
-    			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i) +"]  ["+ (j+board[i][j]) +"]");
-    			return traverse(i,j+board[i][j],board,positions);	
-    		}
-    		
-    			
-    		}
-	return false;
-    		
-    	
-    }
-	
+    public static boolean traverse(int i, int j, int[][] board, boolean[][] visited) {
+		// base case how to stop the program if we find a 0
+		if (board[i][j] == 0) {			
+			return true;
+		}
+		
+		else {
+			System.out.println("visiting : ("+i+ ","+j+")." );
+			/**
+			 *  check if we already visited this node or not
+			 */
+			if (visited[i][j]) {
+				System.out.println("visited this cell already");
+				return false;
+			}	
+			/**
+			 *  reach here means we have not visited before, so we mark it as visited
+			 */
+			visited[i][j] = true;
+			
+			/**
+			 *  getting all the possible adjacent cells and put them in an array of array of int to know the positions
+			 */
+			int[][] adjacent_cells = new int[4][2];
+			
+			/**
+			 *  going north 
+			 */
+			if (i - board[i][j] >= 0) {
+				int[] north = {i - board[i][j], j};
+				adjacent_cells[0] = north;
+			}
+			
+			/**
+			 *  going south 
+			 */
+			if (i + board[i][j] < board.length) {
+				int[] south = {i + board[i][j], j};
+				adjacent_cells[1] = south;
+			}
+			/**
+			 * going east
+			 */
+			if (j + board[i][j] < board.length) {
+				int[] east = {i, j + board[i][j]};
+				adjacent_cells[2] = east;
+			}
+			
+			/**
+			 *  going west
+			 */
+			if (j - board[i][j] >= 0) {
+				int[] west = {i, j - board[i][j]};
+				adjacent_cells[3] = west;
+			}
+			
+			
+			
+			
+			/**
+			 *  for loop to explore all the adjacent cells of a cell
+			 */
+			for (int cells = 0; cells < 4; cells++) {
+				
+				if (traverse(adjacent_cells[cells][0], adjacent_cells[cells][1],board, visited))
+					return true;
+			}			
+		}
+		return false;
+	}
+
 /**
  * here, i and j are the start indexes
  * @param i
@@ -92,6 +86,7 @@ public static int[] [] create_board(int size, int start_row,int start_col) {
 	
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
+	    	
 	        board[i][j] = 1+(int)(Math.random()*(size-1));
 	    }
 	}
@@ -188,10 +183,12 @@ public static void printRow(int[] row) {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-		int size; int start_row=0; int start_col=0;
+		
+		 int size; int start_row=0; int start_col=0;
 		Scanner sc= new Scanner(System.in);
 		System.out.println("Please input the size of the board (between 5 and 20): ");
 	    size= sc.nextInt();
+
 	    
 	    System.out.println("Please choose a starting index from the 4 options stated below: ");
 		System.out.println("Press \"1\" for \"top-left\"");
@@ -211,10 +208,13 @@ public static void printRow(int[] row) {
 		for(int[] row : board) {
             printRow(row);
         }
-		ArrayList<int[]> positions =new ArrayList<int[]>();
-		System.out.println(traverse(start_row,start_col,board,positions));
-		sc.close();
-
+		
+	
+		
+		boolean [] [] flag = new boolean [size][size];
+		
+      
+        System.out.println(traverse(start_row,start_col,board,flag));
 	}
 
 }
