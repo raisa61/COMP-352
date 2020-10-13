@@ -1,8 +1,15 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MagicBoard_recursive {
 	
-    public static boolean traverse(int i,int j, int[] [] board) {
+    public static boolean traverse(int i,int j, int[] [] board, ArrayList<int []> positions) {
+    	
+    	/**
+    	 * pushing the array of positions in the arraylist
+    	 */
+    	int[] position= {i,j};
+    	positions.add(position);
     	
     	if(board[i][j] == 0) {        
             System.out.println("We are at the final position (" + i + "," + j + ")");
@@ -13,8 +20,14 @@ public class MagicBoard_recursive {
     		 * for moving top
     		 */
     		if(board[i][j]<=i) {
+    			/**
+    			 * checking if the cell has been visited before
+    			 */
+    			int[]temp1= {i - board[i][j], j};
+    			if(positions.contains(temp1))
+    				return false;
     			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i-board[i][j]) +"]  ["+j+"]");
-    			return traverse(i - board[i][j], j ,board);
+    			return traverse(i - board[i][j], j ,board,positions);
     			
     		}
     		
@@ -22,27 +35,50 @@ public class MagicBoard_recursive {
     		 * for moving bottom
     		 */
     		if(board[i][j]<board.length-i) {
+    			/**
+    			 * checking if the cell has been visited before
+    			 */
+    			int[] temp2= {i + board[i][j], j};
+    			if (positions.contains(temp2))
+    				return false;
+    			
     			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i+board[i][j]) +"]  ["+j+"]");
-    			return traverse(i + board[i][j], j ,board);
+    			return traverse(i + board[i][j], j ,board,positions); 
     		}
     		/**
     		 * for moving left
     		 */
     		if(board[i][j]<j-1) {
+    			/**
+    			 * checking if the cell has been visited before
+    			 */
+    			int[] temp3= {i,j-board[i][j]};
+    			if(positions.contains(temp3))
+    				return false;
+    			
     			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i) +"]  ["+ (j-board[i][j]) +"]");
-    			return traverse(i,j-board[i][j],board);	
+    			return traverse(i,j-board[i][j],board,positions);	
     		}
     		
     		/**
     		 * for moving right
     		 */
     		if(board[i][j]<board.length-j) {
+    			/**
+    			 * checking if the cell has been visited before
+    			 */
+    			int[] temp4= {i,j+board[i][j]};
+    			if(positions.contains(temp4))
+    				return false;
     			System.out.println("Moving from [" + i + "]  ["+ j +"] to [" + (i) +"]  ["+ (j+board[i][j]) +"]");
-    			return traverse(i,j+board[i][j],board);	
+    			return traverse(i,j+board[i][j],board,positions);	
     		}
     		
-    	}
-    	return false;
+    			
+    		}
+	return false;
+    		
+    	
     }
 	
 /**
@@ -175,9 +211,10 @@ public static void printRow(int[] row) {
 		for(int[] row : board) {
             printRow(row);
         }
-		
-		System.out.println(traverse(start_row,start_col,board));
+		ArrayList<int[]> positions =new ArrayList<int[]>();
+		System.out.println(traverse(start_row,start_col,board,positions));
 		sc.close();
+
 	}
 
 }
