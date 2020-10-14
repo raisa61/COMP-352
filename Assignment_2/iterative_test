@@ -11,17 +11,22 @@ public class MagicBoard_iterative {
     	while (stack.peek()!=0) {
     	
 		// base case how to stop the program if we find a 0
-		if (board[i][j] == 0) {			
-			return true;
+		if (stack.empty()) {			
+			System.out.print("The stack is empty!");
 		}
 		
 		else {
-			System.out.println("visiting : ("+i+ ","+j+")." );
+			System.out.println("Starting the traverse!" );
+			while (board[i][j]!=0) {
+				//System.out.println(board[i][j]);
+				
+			
 			/**
 			 *  check if we already visited this node or not
 			 */
 			if (visited[i][j]) {
 				System.out.println("visited this cell already");
+				stack.pop();
 				return false;
 			}	
 			/**
@@ -33,9 +38,8 @@ public class MagicBoard_iterative {
 			 *  getting all the possible adjacent cells and put them in an array of array of int to know the positions
 			 */
 			int[][] adjacent_cells = new int[4][2];
-			
 			int temp = 0;
-			while (temp == 0) {
+			outer:while (temp==0) {
 			
 			/**
 			 *  going north 
@@ -43,9 +47,12 @@ public class MagicBoard_iterative {
 			if (i - board[i][j] >= 0) {
 				int[] north = {i - board[i][j], j};
 				adjacent_cells[0] = north;
-				//i=i - board[i][j];
-				stack.push(board[i - board[i][j]][j]);
-				temp = 1;
+				i=i - board[i][j];
+				System.out.println("north");
+				//stack.push(board[i - board[i][j]][j]);
+				temp=1;
+				break outer;
+			
 			}
 			
 			/**
@@ -54,9 +61,12 @@ public class MagicBoard_iterative {
 			if (i + board[i][j] < board.length) {
 				int[] south = {i + board[i][j], j};
 				adjacent_cells[1] = south;
-				//i=i + board[i][j];
-				stack.push(board[i + board[i][j]][j]);
-				temp = 1;
+				i=i + board[i][j];
+				System.out.println("south");
+				//stack.push(board[i + board[i][j]][j]);
+				temp=1;
+				break outer;
+				
 			}
 			/**
 			 * going east
@@ -64,9 +74,12 @@ public class MagicBoard_iterative {
 			if (j + board[i][j] < board.length) {
 				int[] east = {i, j + board[i][j]};
 				adjacent_cells[2] = east;
-				//j=j + board[i][j];
-				stack.push(board[i][j + board[i][j]]);
-				temp = 1;
+				j=j + board[i][j];
+				System.out.println("east");
+				//stack.push(board[i][j + board[i][j]]);
+				temp=1;
+				break outer;
+			
 			}
 			
 			/**
@@ -75,15 +88,25 @@ public class MagicBoard_iterative {
 			if (j - board[i][j] >= 0) {
 				int[] west = {i, j - board[i][j]};
 				adjacent_cells[3] = west;
-				//j=j - board[i][j];
-				stack.push(board[i][j - board[i][j]]);
-				temp = 1;
+				j=j - board[i][j];
+				System.out.println("west");
+				//stack.push(board[i][j - board[i][j]]);
+				temp=1;
+				break outer;
+			
 			}
 			}
+			
+			stack.push(board[i][j]);
+			System.out.println(i);
+			System.out.println(j);
+			System.out.println(Arrays.toString(stack.toArray()));
+		
 			
 			/**
 			 *  for loop to explore all the adjacent cells of a cell
 			 */
+			/**while(stack.empty() == false) {
 			for (int cells = 0; cells < 4; cells++) {
 				
 				System.out.println(adjacent_cells[cells][0]);
@@ -94,13 +117,21 @@ public class MagicBoard_iterative {
 				//return true;}
 				//else stack.pop();
 				System.out.println(Arrays.toString(stack.toArray()));
+				if(stack.peek()!=0) {
+				stack.pop();}
+				else if (stack.peek()==0) {System.out.print("bingo");}
 				
 				//if (traverse(adjacent_cells[cells][0], adjacent_cells[cells][1],board, visited))
 					//return true;
 			}
+			}*/
+		}}
 		}
-		}
+		//return true;
+    	System.out.println("I'm at the end");
 		return false;
+		
+		//if stack is full error return false
 	
 }
 
