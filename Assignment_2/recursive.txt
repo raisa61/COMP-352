@@ -1,3 +1,4 @@
+//pseudo code for the recursive function
 Algorithm traverse ( start_row, start_col, board, visited )
 {
   Input start_row, start_col, 2D integer array board, 2D boolean array visited
@@ -41,3 +42,16 @@ Algorithm traverse ( start_row, start_col, board, visited )
   return false
 
 }
+
+//time complexity of the function
+??
+
+//space complexity of the function
+Here, because we are using tail recursion, we don't need to store the previous calls of the functions in the stack anymore, 
+as they do not return anything. Therefore, even if we are using few arrays to store data inside the method, it is always
+constant. Therefore, the space complexity will be O(1).
+
+
+
+
+
