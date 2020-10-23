@@ -11,9 +11,9 @@ public class MagicBoard_iterative {
         options = new Stack<Integer>();
         visited = new boolean[board.length*board.length];
         
-        //change the format from a[i][j] to a[i*board.length+j] and adding the starting point to stack
+        //change the format from a[i][j] to a[i*board.length+j] and pushing the starting point to stack
         int current_point = i*board.length+j;
-        options.add(current_point);
+        options.push(current_point);
         while(!options.isEmpty()){
             current_point = options.pop();
             i = current_point/board.length;
@@ -38,28 +38,28 @@ public class MagicBoard_iterative {
                 if(i-step >= 0){
                     new_i -= step;
                     new_val = new_i*board.length+new_j;
-                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.add(new_val); 
+                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.push(new_val); 
                     else if(board[new_i][new_j]==0) return true;
                     new_i=i;
                 }
                 if(i+step < board.length){
                     new_i += step;
                     new_val = new_i*board.length+new_j;
-                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.add(new_val); 
+                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.push(new_val); 
                     else if(board[new_i][new_j]==0) return true;
                     new_i=i;
                 }
                 if(j-step >= 0){
                     new_j -= step;
                     new_val = new_i*board.length+new_j;
-                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.add(new_val); 
+                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.push(new_val); 
                     else if(board[new_i][new_j]==0) return true;
                     new_j=j;
                 }
                 if(j+step < board.length){
                     new_j += step;
                     new_val = new_i*board.length+new_j;
-                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.add(new_val); 
+                    if(board[new_i][new_j]!=0 && !visited[new_val]) options.push(new_val); 
                     else if(board[new_i][new_j]==0) return true;
                     new_j=j;
                 }
