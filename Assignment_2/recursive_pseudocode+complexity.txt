@@ -50,7 +50,9 @@ Here, the time complexity is O(n). Because the worst case scenario is that, we h
 Here, because we are using tail recursion, we don't need to store the previous calls of the functions in the stack anymore, 
 as they do not return anything. And we are creating arrays inside the method that have constant capacity. Therefore, the space complexity will be O(1).
 
+//Inside the method we are using a boolean 2D array to detect if a cell has already been visited or not. If a cell has been visited, it's set to true, if the same cell is visited again right after a move, it means the traversal will keep looping between these two cells and will never reach the cell containing 0. Thus, we detect it 
+as an unsolvable board and return false to prevent stackoverflow error.
 
-
-
+//If we used normal recursion, the method will take longer to execute, but since we're using tail recursion, the method recursive gets called only once instead of 4 times 
+for 4 different directions. Therefore, this tail recursion version is the fastest version.
 
