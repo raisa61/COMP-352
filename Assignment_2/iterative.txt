@@ -59,4 +59,5 @@ Algorithm traverse ( start_row, start_col, board)
 ?? most probably O(n)
 
 //space complexity of the function
-Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)...
+Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)
+The 2D array results in O(n^2) 
