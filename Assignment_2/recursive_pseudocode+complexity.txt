@@ -4,7 +4,7 @@ Algorithm traverse ( start_row, start_col, board, visited )
   Input start_row, start_col, 2D integer array board, 2D boolean array visited
   Output boolean true or false
   
-  If(board[start_row][start_col]==0)
+  If(board[start_row][start_col]<--0)
      return true
   else
      Print("Visiting" + start_row + " " + start_col)
@@ -13,25 +13,25 @@ Algorithm traverse ( start_row, start_col, board, visited )
         Print("Visited this cell already")
         return false
      
-     visited[start_row][start_col]=true
+     visited[start_row][start_col]<--true
 
-     int[][] adjacent_cells = new int[4][2]
+     int[][] adjacent_cells <-- new int[4][2]
      
      if (start_row - board[start_row][start_col] >= 0) 
-	  int[] north = {start_row - board[start_row][start_col], start_col}
-	  adjacent_cells[0] = north
+	  int[] north <-- {start_row - board[start_row][start_col], start_col}
+	  adjacent_cells[0] <-- north
      
      if (start_row + board[start_row][start_col] < board.length) 
-	  int[] south = {start_row + board[start_row][start_col], start_col}
-	  adjacent_cells[1] = south
+	  int[] south <-- {start_row + board[start_row][start_col], start_col}
+	  adjacent_cells[1] <-- south
       
      if (start_col + board[start_row][start_col] < board.length) 
-	  int[] east = {start_row, start_col + board[start_row][start_col]}
-	  adjacent_cells[2] = east
+	  int[] east <-- {start_row, start_col + board[start_row][start_col]}
+	  adjacent_cells[2] <-- east
    
      if (start_col - board[start_row][start_col] >= 0) 
-	  int[] west = {start_row, start_col - board[start_row][start_col]}
-	  adjacent_cells[3] = west
+	  int[] west <-- {start_row, start_col - board[start_row][start_col]}
+	  adjacent_cells[3] <-- west
 			
 
      for cells<--0 to 4 do
