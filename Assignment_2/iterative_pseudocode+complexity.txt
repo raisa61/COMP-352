@@ -56,9 +56,14 @@ Algorithm traverse ( start_row, start_col, board)
 }
 
 //time complexity of the function
-O(n) because of while(!options.isEmpty())
+//O(n) because of while(!options.isEmpty())
 
 //space complexity of the function
-Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)
-However we have O(N) due to the stack which denotes linear space use, the algorithm space use grows together with respect to the number of values on the board
-2D array uses O(N^2)
+//Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)
+//However we have O(N) due to the stack which denotes linear space use, the algorithm space use grows together with respect to the number of values on the board
+//2D array uses O(N^2)
+
+//We have chosen a stack over a queue - you can think about it as a dfs tree , generally we use a queue(first in first out) when we want to get things out in order we have put them in however with stack (first in last out) we can get things out in a reverse order and that's what we need in this algorithm
+
+
+
