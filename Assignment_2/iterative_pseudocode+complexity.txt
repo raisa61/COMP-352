@@ -64,6 +64,7 @@ Algorithm traverse ( start_row, start_col, board)
 //2D array uses O(N^2)
 
 //We have chosen a stack over a queue - you can think about it as a dfs tree , generally we use a queue(first in first out) when we want to get things out in order we have put them in however with stack (first in last out) we can get things out in a reverse order and that's what we need in this algorithm
+//The time complexity for stack would be O(1) but for queues would be O(n).
 
 
 
