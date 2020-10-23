@@ -44,12 +44,11 @@ Algorithm traverse ( start_row, start_col, board, visited )
 }
 
 //time complexity of the function
-??
+?? most probably O(n)
 
 //space complexity of the function
 Here, because we are using tail recursion, we don't need to store the previous calls of the functions in the stack anymore, 
-as they do not return anything. Therefore, even if we are using few arrays to store data inside the method, it is always
-constant. Therefore, the space complexity will be O(1).
+as they do not return anything. Therefore, the space complexity will be O(n).
 
 
 
