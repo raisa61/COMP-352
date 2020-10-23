@@ -17,20 +17,20 @@ Algorithm traverse ( start_row, start_col, board, visited )
 
      int[][] adjacent_cells = new int[4][2]
      
-     if (i - board[i][j] >= 0) 
-	  int[] north = {i - board[i][j], j}
+     if (start_row - board[start_row][start_col] >= 0) 
+	  int[] north = {start_row - board[start_row][start_col], start_col}
 	  adjacent_cells[0] = north
      
-     if (i + board[i][j] < board.length) 
-	  int[] south = {i + board[i][j], j}
+     if (start_row + board[start_row][start_col] < board.length) 
+	  int[] south = {start_row + board[start_row][start_col], start_col}
 	  adjacent_cells[1] = south
       
-     if (j + board[i][j] < board.length) 
-	  int[] east = {i, j + board[i][j]}
+     if (start_col + board[start_row][start_col] < board.length) 
+	  int[] east = {start_row, start_col + board[start_row][start_col]}
 	  adjacent_cells[2] = east
    
-     if (j - board[i][j] >= 0) 
-	  int[] west = {i, j - board[i][j]}
+     if (start_col - board[start_row][start_col] >= 0) 
+	  int[] west = {start_row, start_col - board[start_row][start_col]}
 	  adjacent_cells[3] = west
 			
 
