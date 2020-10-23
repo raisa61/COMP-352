@@ -56,8 +56,9 @@ Algorithm traverse ( start_row, start_col, board)
 }
 
 //time complexity of the function
-?? most probably O(n)
+O(n) beucase of while(!options.isEmpty())
 
 //space complexity of the function
 Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)
-The 2D array results in O(n^2) 
+However we have O(N) due to the stack which denotes linear space use, the algorithm space use grows together with respect to the number of values on the board
+2D array uses O(N^2)
