@@ -1,0 +1,43 @@
+Algorithm traverse ( start_row, start_col, board, visited )
+{
+  Input start_row, start_col, 2D integer array board, 2D boolean array visited
+  Output boolean true or false
+  
+  If(board[start_row][start_col]==0)
+     return true
+  else
+     Print("Visiting" + start_row + " " + start_col)
+
+     if (visited[start_row][start_col])
+        Print("Visited this cell already")
+        return false
+     
+     visited[start_row][start_col]=true
+
+     int[][] adjacent_cells = new int[4][2]
+     
+     if (i - board[i][j] >= 0) 
+	  int[] north = {i - board[i][j], j}
+	  adjacent_cells[0] = north
+     
+     if (i + board[i][j] < board.length) 
+	  int[] south = {i + board[i][j], j}
+	  adjacent_cells[1] = south
+      
+     if (j + board[i][j] < board.length) 
+	  int[] east = {i, j + board[i][j]}
+	  adjacent_cells[2] = east
+   
+     if (j - board[i][j] >= 0) 
+	  int[] west = {i, j - board[i][j]}
+	  adjacent_cells[3] = west
+			
+
+     for cells<--0 to 4 do
+           if (traverse(adjacent_cells[cells][0], adjacent_cells[cells][1],board, visited))
+	      return true
+
+
+  return false
+
+}
