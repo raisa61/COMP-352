@@ -1,0 +1,62 @@
+//pseudo code for the iterative function
+Algorithm traverse ( start_row, start_col, board)
+{
+  Input start_row, start_col, 2D integer array board
+  Output boolean true or false
+  
+  STACK options(Integer)
+  ARRAY visited(Boolean)
+  INTEGER current_point <- i*board.length+j
+  options.add(current_point)
+        while(!options.isEmpty()){
+            current_point <- options.pop()
+            i <- current_point/board.length
+            j <- current_point%board.length
+            IF(!visited[current_point]){
+                INTEGER step <- board[i][j]
+                INTEGER new_i <- i
+                INTEGER new_j <- j
+                INTEGER new_val <- current_point
+                IF(i-step >= 0){
+                    new_i -= step
+                    new_val <- new_i*board.length+new_j
+                    IF(board[new_i][new_j]!=0 AND !visited[new_val]) options.add(new_val) 
+                    else IF(board[new_i][new_j]==0) return true
+                    new_i<-i
+                }
+                IF(i+step < board.length){
+                    new_i += step
+                    new_val = new_i*board.length+new_j
+                    IF(board[new_i][new_j]!=0 AND !visited[new_val]) options.add(new_val)
+                    else IF(board[new_i][new_j]==0) return true
+                    new_i=i
+                }
+                IF(j-step >= 0){
+                    new_j -= step
+                    new_val = new_i*board.length+new_j
+                    IF(board[new_i][new_j]!=0 AND !visited[new_val]) options.add(new_val)
+                    ELSE IF(board[new_i][new_j]==0) return true
+                    new_j<-j
+                }
+                IF(j+step < board.length){
+                    new_j += step
+                    new_val <- new_i*board.length+new_j
+                    IF(board[new_i][new_j]!=0 AND !visited[new_val]) options.add(new_val)
+                    ELSE IF(board[new_i][new_j]==0) return true
+                    new_j<-j
+                }
+                
+                visited[current_point] <- true
+            }
+        }
+        return false
+
+
+
+}
+
+//time complexity of the function
+?? most probably O(n)
+
+//space complexity of the function
+Stack is both O(1) time for storing(push) and O(1) for retrieving(pop)...
