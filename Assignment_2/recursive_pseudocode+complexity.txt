@@ -44,11 +44,11 @@ Algorithm traverse ( start_row, start_col, board, visited )
 }
 
 //time complexity of the function
-?? most probably O(n)
+Here, the time complexity is O(n). Because the worst case scenario is that, we have to traverse through every single cell in the matrix.
 
 //space complexity of the function
 Here, because we are using tail recursion, we don't need to store the previous calls of the functions in the stack anymore, 
-as they do not return anything. Therefore, the space complexity will be O(n).
+as they do not return anything. And we are creating arrays inside the method that have constant capacity. Therefore, the space complexity will be O(1).
 
 
 
