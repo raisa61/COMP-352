@@ -44,11 +44,12 @@ Algorithm traverse ( start_row, start_col, board, visited )
 }
 
 //time complexity of the function
-Here, the time complexity is O(n). Because the worst case scenario is that, we have to traverse through every single cell in the matrix.
+Here, the time complexity is O(n). Because we are using the DFS algorithm to traverse, where the time complexity is O(V+E). Here V=number of cells and E=edges. E is always 
+4 and Vis depending on the size of the board, but V will also be linear always. Therefore, the total time complexity will be O(n).
 
 //space complexity of the function
-Here, because we are using tail recursion, we don't need to store the previous calls of the functions in the stack anymore, 
-as they do not return anything. And we are creating arrays inside the method that have constant capacity. Therefore, the space complexity will be O(1).
+Here, the space complexity is O(n). Because of DFS and tail recursion, when we find  an unsovable path, we just return false right away. Therefore, the biggest height of
+the tree is O(n) since, it might make us traverse thorugh n cells before reaching the 0 cell. Therefore, the space complexity is O(n), where n is the path leading to the solution.
 
 //Inside the method we are using a boolean 2D array to detect if a cell has already been visited or not. If a cell has been visited, it's set to true, if the same cell is visited again right after a move, it means the traversal will keep looping between these two cells and will never reach the cell containing 0. Thus, we detect it 
 as an unsolvable board and return false to prevent stackoverflow error.
