@@ -52,6 +52,20 @@ public class PriorityQueueSimulatorTester {
 		Job j9= new Job("JOB_9",rand9,rand9,pr9,pr9,0,0,0); 
 		Job j10= new Job("JOB_10",rand10,rand10,pr10,pr10,0,0,0); 
 		
+		/**
+		 * filling the array with the objects
+		 */
+		jobsInputArray[0]=j1;
+		jobsInputArray[1]=j2;
+		jobsInputArray[2]=j3;
+		jobsInputArray[3]=j4;
+		jobsInputArray[4]=j5;
+		jobsInputArray[5]=j6;
+		jobsInputArray[6]=j7;
+		jobsInputArray[7]=j8;
+		jobsInputArray[8]=j9;
+		jobsInputArray[9]=j10;
+		
 		
 	}
 
