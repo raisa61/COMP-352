@@ -66,6 +66,32 @@ public class PriorityQueueSimulatorTester {
 		jobsInputArray[8]=j9;
 		jobsInputArray[9]=j10;
 		
+		//getting null pointer error for these parts
+		/**
+		 * printing the initial array objects
+		 */
+		for(int i=0; i<jobsInputArray.length; i++) {
+			System.out.println(jobsInputArray[i].toString());
+		}
+		
+		System.out.println();
+		/**
+		 *dumping the array objects in the heap
+		 */
+		ArrayListHeap<Integer, Job> heap = new ArrayListHeap<Integer, Job>();
+		for(int i=0; i<jobsInputArray.length; i++) {
+			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
+			
+		}
+		
+		/**
+		 * removing the objects in a sorted order
+		 */
+		for(int i=0; i<jobsInputArray.length; i++) {
+			System.out.println(heap.removeMin());
+			
+		}
+		
 		
 	}
 
