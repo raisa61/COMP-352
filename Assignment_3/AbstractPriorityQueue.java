@@ -27,6 +27,11 @@ public class AbstractPriorityQueue<K,V> {
 		protected void setKey(K key) { k = key; }
 		protected void setValue(V value) { v = value; }
 		
+		@Override
+		public String toString() {
+			return "Entry==> Job Length = " + k + ", Job = " + v + ".";
+		}
+		
 		}
 	
 	//end of the nested class
