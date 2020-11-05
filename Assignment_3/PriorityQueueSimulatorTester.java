@@ -7,7 +7,7 @@ public class PriorityQueueSimulatorTester {
 		/**
 		 * creating the job array
 		 */
-		Job[] jobsInputArray = new Job [100];
+		Job[] jobsInputArray = new Job [10];
 		
 		/**
 		 * genration of random job lengths between 1 and 70
@@ -66,13 +66,12 @@ public class PriorityQueueSimulatorTester {
 		jobsInputArray[8]=j9;
 		jobsInputArray[9]=j10;
 		
-		//getting null pointer error for these parts
 		/**
 		 * printing the initial array objects
 		 */
-		for(int i=0; i<jobsInputArray.length; i++) {
-			System.out.println(jobsInputArray[i].toString());
-		}
+		for (Job jobs: jobsInputArray) {
+            System.out.println(jobs.toString());
+        }
 		
 		System.out.println();
 		/**
@@ -85,10 +84,10 @@ public class PriorityQueueSimulatorTester {
 		}
 		
 		/**
-		 * removing the objects in a sorted order
+		 * removing the Entries in a sorted order
 		 */
 		for(int i=0; i<jobsInputArray.length; i++) {
-			System.out.println(heap.removeMin());
+			heap.removeMin();
 			
 		}
 		
