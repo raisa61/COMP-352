@@ -84,13 +84,19 @@ public class PriorityQueueSimulatorTester {
 		}
 		
 		/**
-		 * removing the Entries in a sorted order
+		 * removing the objects in a sorted order
 		 */
+		ArrayList<Entry<Integer,Job>> sorted_array = new ArrayList<>( );
 		for(int i=0; i<jobsInputArray.length; i++) {
-			heap.removeMin();
-			
+			sorted_array.add(heap.removeMin());
 		}
 		
+		/**
+		 * printing out the sorted array
+		 */
+		for (Entry<Integer, Job> sorted: sorted_array) {
+                 System.out.println(sorted.toString()); //I'm getting the addresses here, instead of the entries, I think we need to add a toString method somewhere
+        }
 		
 	}
 
