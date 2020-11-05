@@ -92,10 +92,10 @@ public class PriorityQueueSimulatorTester {
 		}
 		
 		/**
-		 * printing out the sorted array
+		 * printing out the sorted array for testing
 		 */
 		for (Entry<Integer, Job> sorted: sorted_array) {
-                 System.out.println(sorted.toString()); //I'm getting the addresses here, instead of the entries, I think we need to add a toString method somewhere
+                 System.out.println(sorted.toString());
         }
 		
 	}
