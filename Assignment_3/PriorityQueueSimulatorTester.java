@@ -97,6 +97,33 @@ public class PriorityQueueSimulatorTester {
 		for (Entry<Integer, Job> sorted: sorted_array) {
                  System.out.println(sorted.toString());
         }
+		//------------code upto this part works fine----------------
+		
+		/**
+		 * testing the insertion method from the Sorted List queue class
+		 */
+		SortedListPQ<Integer, Job> PQ = new SortedListPQ<Integer, Job>();
+		for(int i=0; i<jobsInputArray.length; i++) {
+			PQ.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
+			
+		}
+		
+		/**
+		 * testing the removeMin method from the Sorted list queue class
+		 */
+		ArrayList<Entry<Integer,Job>> sorted_array2 = new ArrayList<>( );
+		for(int i=0; i<jobsInputArray.length; i++) {
+			sorted_array2.add(PQ.removeMin());
+		}
+		
+		/**
+		 * printing out the sorted array from the PQ class
+		 */
+		System.out.println("Method from the SortedListPQ class");
+		for (Entry<Integer, Job> sorted: sorted_array2) {
+            System.out.println(sorted.toString());
+        }
+		
 		
 	}
 
