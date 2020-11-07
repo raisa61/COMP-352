@@ -23,9 +23,17 @@ public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
 	  /**
 	   * inserting an element in the sorted list (right position)
 	   */
-	  public Entry<K,V> insert(K key, V value) {
+	   public Entry<K,V> insert(K key, V value) {
 		  checkKey(key); 
 		  Entry<K,V> newest = new PQEntry<>(key, value);
+		  
+		  //if the list is empty, then add the entry to the list
+		  if(list.isEmpty()) {
+			  list.add(0,newest);		  
+			  }
+		  
+		  else {
+			  
 		  
 		  //if the new key is the smallest, add it to the beginning
 		  Entry<K,V>start=list.get(0); 
@@ -33,7 +41,7 @@ public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
 			  list.add(0,newest);
 		  }
 		  
-		//if the key is largest, we'll add it to the end
+		  //if the key is largest, we'll add it to the end
 		  Entry<K,V>last=list.get(list.size()-1);
 		  if(comp.compare(last.getKey(), newest.getKey())<0) {
 			  list.add(list.size()-1,newest);
@@ -49,6 +57,7 @@ public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
 				  list.add(p+1,newest);
 			  }
 			  p++;
+		  }
 		  }
 		  return newest;
 		  
