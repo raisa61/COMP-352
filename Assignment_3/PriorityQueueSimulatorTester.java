@@ -116,14 +116,7 @@ public class PriorityQueueSimulatorTester {
 		priority_generate(jobsInputArray);
 		
 		
-		/**
-		 * printing the initial array objects
-		 */
-		for (Job jobs: jobsInputArray) {
-            System.out.println(jobs.toString());
-        }
 		
-		System.out.println();
 		/**
 		 *dumping the array objects in the heap
 		 */
@@ -135,20 +128,13 @@ public class PriorityQueueSimulatorTester {
 		}
 		
 		/**
-		 * removing the objects in a sorted order
+		 * trying the execution thing in a sorted order based on priority 
 		 */
-		ArrayList<Entry<Integer,Job>> sorted_array1 = new ArrayList<>( );
 		for(int i=0; i<jobsInputArray.length; i++) {
-			sorted_array1.add(heap.removeMin());
+			System.out.println(heap.removeMin().toString());
 		}
 		
-		/**
-		 * printing out the sorted array
-		 */
-		System.out.println("Method from the heap class");
-		for (Entry<Integer, Job> sorted: sorted_array1) {
-            System.out.println(sorted.toString());
-        }
+		
 		//------------code upto this part works fine----------------
 		
 		/*
