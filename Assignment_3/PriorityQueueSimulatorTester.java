@@ -131,9 +131,14 @@ public class PriorityQueueSimulatorTester {
 		 * trying the execution thing in a sorted order based on priority 
 		 */
 		for(int i=0; i<jobsInputArray.length; i++) {
-			System.out.println(heap.removeMin().toString());
+			
+			Entry<Integer,Job> executing_job = heap.removeMin();
+			
+			//reducing the current length by 1 when it's being executed
+			executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
+			
+			System.out.println(executing_job.toString());
 		}
-		
 		
 		//------------code upto this part works fine----------------
 		
