@@ -29,7 +29,7 @@ public class AbstractPriorityQueue<K,V> {
 		
 		@Override
 		public String toString() {
-			return "Entry==> Job Priority = " + k + ", Job = " + v + ".";
+			return v + ".";
 		}
 		
 		}
