@@ -23,7 +23,7 @@ public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
 	  /**
 	   * inserting an element in the sorted list (right position)
 	   */
-	   public Entry<K,V> insert(K key, V value) {
+	  public Entry<K,V> insert(K key, V value) {
 		  checkKey(key); 
 		  Entry<K,V> newest = new PQEntry<>(key, value);
 		  
@@ -35,27 +35,28 @@ public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
 		  else {
 			  
 		  
-		  //if the new key is the smallest, add it to the beginning
+		 // if the new key is the smallest, add it to the beginning
 		  Entry<K,V>start=list.get(0); 
-		  if (comp.compare(start.getKey(),newest.getKey())>0) {
+		  if (compare(start,newest)>0) {
 			  list.add(0,newest);
 		  }
 		  
 		  //if the key is largest, we'll add it to the end
 		  Entry<K,V>last=list.get(list.size()-1);
-		  if(comp.compare(last.getKey(), newest.getKey())<0) {
-			  list.add(list.size()-1,newest);
+		  if(compare(last, newest)<0) {
+			 list.add(list.size()-1,newest);
 		  }
 		  
 		  //to add the key between two keys
-		  int p=1;
+		  int p=0;
 		  while (p!=list.size()-1) {
 			  Entry<K,V> before = list.get(p);
 			  Entry<K,V> after = list.get(p+1);
 			  
-			  if ((comp.compare(before.getKey(),newest.getKey())<0) && (comp.compare(after.getKey(),newest.getKey())>0)) {
+			  if (((compare(before,newest)<0) && (compare(after,newest)>0))) { //need to add a case if the keys are similar then add it after the similar ones
 				  list.add(p+1,newest);
 			  }
+			 
 			  p++;
 		  }
 		  }
