@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class PriorityQueueSimulatorTester {
@@ -36,6 +38,23 @@ public class PriorityQueueSimulatorTester {
 	}
 	
 	
+
+	public static void reset_priority (ArrayListHeap<Integer, Job> heap) {
+		if (heap.isEmpty( )) 
+			return;
+		int j=0;
+		long min= heap.get(j).getValue().getEntryTime();
+        for (int k=0; k<heap.size(); k++) {      
+                  if(heap.get(k).getValue().getEntryTime() < min){ 
+                     min = heap.get(k).getValue().getEntryTime();  
+                     heap.get(k).getValue().setJobPriority(1);
+                    }  
+        }
+        
+		
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		
@@ -65,30 +84,46 @@ public class PriorityQueueSimulatorTester {
 		 */
 		ArrayListHeap<Integer, Job> heap = new ArrayListHeap<Integer, Job>();
 		for(int i=0; i<jobsInputArray.length; i++) {
-			jobsInputArray[i].setEntryTime(i);
 			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
+			jobsInputArray[i].setEntryTime(i+1);
 			
 		}
 		
 		/**
 		 * trying the execution thing in a sorted order based on priority 
 		 */
-		for(int i=0; i<jobsInputArray.length; i++) {
+		int counter =0;
+		
+		for(int i=0; i<heap.size(); i++) {
 			
 			Entry<Integer,Job> executing_job = heap.removeMin();
-			
-			//reducing the current length by 1 when it's being executed
+			//reducing the length by 1 when it's being executed
 			executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
 			
+			/**
+			 * the counter is to check for the smallest time and reseting the priority
+			 */
+			counter++;
+			
 			System.out.println(executing_job.toString());
+		    
+			
+			if(counter%30==0) {
+				reset_priority(heap);
+				System.out.println(heap.get(i).getValue().getJobPriority());
+				}
+			}
+			 
+			
 		}
+		
 		
 		//------------code upto this part works fine----------------
 		
-		/*
+		
 		 //testing the insertion method from the Sorted List queue class
 		 
-		SortedListPQ<Integer, Job> PQ = new SortedListPQ<Integer, Job>();
+		/*SortedListPQ<Integer, Job> PQ = new SortedListPQ<Integer, Job>();
 		for(int i=0; i<jobsInputArray.length; i++) {
 			PQ.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
 			
@@ -115,4 +150,4 @@ public class PriorityQueueSimulatorTester {
 		
 	}
 
-}
+
