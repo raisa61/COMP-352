@@ -164,7 +164,7 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Now executing " + jobName + ". Job length: " + jobLength + " cycles. Current remaining length: " 
-	            + currentJobLength + ". Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority ;
+	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority ;
 	}
 	
 	
