@@ -114,6 +114,13 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 
 	}
 	
+	public V smallest_time () {
+		if (heap.isEmpty( )) 
+			return null;
+		return heap.get(0).getValue();
+		
+	}
+	
 	/**
 	 * Inserting an entry in the heap and doing upheap 
 	 */
@@ -145,11 +152,15 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 		return answer;
 	}
 
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		if (heap.size()==0) return true;
+		 return false;
+	}
 	
-	
-	
-
-	
+	public Entry<K,V> get (int i) {
+		return heap.get(i);
+	}
 	
 
 }
