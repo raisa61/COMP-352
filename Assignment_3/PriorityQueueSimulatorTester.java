@@ -39,17 +39,25 @@ public class PriorityQueueSimulatorTester {
 	
 	
 
-	public static void reset_priority (ArrayListHeap<Integer, Job> heap) {
+	public static int reset_priority (ArrayListHeap<Integer, Job> heap) {
 		if (heap.isEmpty( )) 
-			return;
+			return 0;
 		int j=0;
+	    int index=0;
 		long min= heap.get(j).getValue().getEntryTime();
-        for (int k=0; k<heap.size(); k++) {      
+        for (int k=0; k<heap.size(); k++) {  
+        	
                   if(heap.get(k).getValue().getEntryTime() < min){ 
-                     min = heap.get(k).getValue().getEntryTime();  
-                     heap.get(k).getValue().setJobPriority(1);
-                    }  
+                     min = heap.get(k).getValue().getEntryTime(); 
+                    
+                     index=k;
+                    } 
+                  
+                    
         }
+        return index;
+          
+        
         
 		
 	}
@@ -94,8 +102,11 @@ public class PriorityQueueSimulatorTester {
 		 */
 		int counter =0;
 		
-		for(int i=0; i<heap.size(); i++) {
+		//for(int i=0; i<heap.size(); i++) {
 			
+			while(!heap.isEmpty()) {
+			
+				
 			Entry<Integer,Job> executing_job = heap.removeMin();
 			//reducing the length by 1 when it's being executed
 			executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
@@ -109,13 +120,17 @@ public class PriorityQueueSimulatorTester {
 		    
 			
 			if(counter%30==0) {
-				reset_priority(heap);
-				System.out.println(heap.get(i).getValue().getJobPriority());
+				int index=reset_priority(heap);
+				
+				heap.get(index).getValue().setJobPriority(1);
+				System.out.println(heap.get(index).getValue().getJobPriority());
+				
 				}
 			}
 			 
 			
 		}
+	
 		
 		
 		//------------code upto this part works fine----------------
