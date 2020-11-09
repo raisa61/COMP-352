@@ -76,6 +76,16 @@ public class AbstractPriorityQueue<K,V> {
 	
 	 * checking whether the priority queue is empty
 	 //Kim: even for this you can go AbstractPriorityQueue.size()==0
+	 //I need to know what you're trying to do cause check this out
+	 //lets say we're doing this in main
+        PriorityQueue<String> pq=
+                new PriorityQueue<String>(a,b);
+     //....
+      // you can do while (pq.size() != 0)
+        //{
+          //  System.out.println(pq.remove()); ...
+        //}
+    //}
 	 
 	public boolean isEmpty( ) { return size( ) == 0; }
 	*/
