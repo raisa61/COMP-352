@@ -38,7 +38,7 @@ public class AbstractPriorityQueue<K,V> {
 	private Comparator<K> comp;
 	
 	/**
-	 * empty priority queue using the given comparator to comapre keys
+	 * empty priority queue using the given comparator to compare keys
 	 * @param c
 	 */
 	protected AbstractPriorityQueue(Comparator<K> c) { comp = c; }
@@ -71,10 +71,11 @@ public class AbstractPriorityQueue<K,V> {
 	 * returning the size
 	 
 	public int size() {
-		return size;
+		return AbstractPriorityQueue.size();
 	}
 	
 	 * checking whether the priority queue is empty
+	 //Kim: even for this you can go AbstractPriorityQueue.size()==0
 	 
 	public boolean isEmpty( ) { return size( ) == 0; }
 	*/
