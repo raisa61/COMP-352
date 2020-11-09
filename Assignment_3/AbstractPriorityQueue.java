@@ -75,18 +75,21 @@ public class AbstractPriorityQueue<K,V> {
 	}
 	
 	 * checking whether the priority queue is empty
-	 //Kim: even for this you can go AbstractPriorityQueue.size()==0
-	 //I need to know what you're trying to do cause check this out
-	 //lets say we're doing this in main
+	 /**
+	 Kim: even for this you can go AbstractPriorityQueue.size()==0
+	 I need to know what you're trying to do cause check this out
+	 lets say we're doing this in main
         PriorityQueue<String> pq=
                 new PriorityQueue<String>(a,b);
-     //....
-      // you can do while (pq.size() != 0)
-        //{
-          //  System.out.println(pq.remove()); ...
-        //}
-    //}
-	 
+     ....
+       you can do while (pq.size() != 0)
+        {
+            System.out.println(pq.remove()); ...
+        }
+    }
+or you could do it how you're getting your size in your sorted list it's gonna be the same thing
+
+*/	 
 	public boolean isEmpty( ) { return size( ) == 0; }
 	*/
 	
