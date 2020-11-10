@@ -57,11 +57,63 @@ public class PriorityQueueSimulatorTester {
         }
         return index;
           
-        
-        
-		
 	}
 	
+	/*public static void starvation (ArrayListHeap<Integer, Job> heap) {
+		
+		long oldest = heap.get(0).getValue().getEntryTime();
+		int temp_pos = 0;
+		
+		for (int i = 1; i<heap.size(); i++) {
+			if (oldest < heap.get(i).getValue().getEntryTime()) {
+				oldest = heap.get(i).getValue().getEntryTime();
+				temp_pos = i;
+				
+				//oldest = oldest.getValue().getEntryTime();
+			}
+		}
+		heap.get(temp_pos).getValue().setFinalPriority(0);
+		upheap(temp_pos);
+		heap.get(temp_pos).getValue().setFinalPriority(1);
+		
+		
+	}
+	private final void bubbleUp(int position) {
+		// base case 
+		if (position == 0) return;
+		if (compare(heap.get(parent(position)),heap.get(position))>0) {
+			return;
+		} else {
+			// swapping parent and child to restore minHeap
+//			Job temp = minHeap.get(parent(position));
+	//		minHeap.set(parent(position), minHeap.get(position));
+		//	minHeap.set(position, temp);
+			swap(parent(position), position);
+			bubbleUp(parent(position));
+		}
+	}
+ 
+	
+	
+	public void starvationProcess() {
+		Job oldest = minHeap.get(0);
+		long temp = oldest.getEntryTime();
+		int temp_pos = 0;
+		
+		for (int i = 1; i<minHeap.size(); i++) {
+			if (temp < minHeap.get(i).getEntryTime()) {
+				oldest = minHeap.get(i);
+				temp_pos = i;
+				temp = oldest.getEntryTime();
+			}
+		}
+		// changing priority for starvation process
+		// putting 0 so that it moves to the root
+		oldest.setFinalPriority(0);
+		bubbleUp(temp_pos);	
+		oldest.setFinalPriority(1);
+	}
+	*/
 	
 	
 	public static void main(String[] args) {
@@ -107,10 +159,10 @@ public class PriorityQueueSimulatorTester {
 		
 		//for(int i=0; i<heap.size(); i++) {
 			
-			//while(!heap.isEmpty()) {
+			while(!heap.isEmpty()) {
 				
-			for(int i=0; i<heap.size(); i++) {
-				System.out.println(heap.size());
+			//for(int i=0; i<heap.size(); i++) {
+				//System.out.println(heap.size());
 				
 				
 			//Entry<Integer,Job> executing_job = heap.removeMin();
@@ -128,20 +180,27 @@ public class PriorityQueueSimulatorTester {
 			/**
 			 * if the length is more than 0, put it back in the heap
 			 */
+			
 				
-				System.out.println(heap.get(i).getValue().getCurrentJobLength());
-			if(heap.get(i).getValue().getCurrentJobLength()>0) {
-				Entry<Integer,Job> executing_job = heap.removeMin();
-				executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
-				System.out.println(executing_job.toString());
-				counter++;
-				heap.insert(heap.get(i).getKey(),heap.get(i).getValue());
-				ctr++;
-				System.out.println(" key= " + heap.get(i).getKey() + " value " +heap.get(i).getValue());
+			if(heap.min().getValue().getCurrentJobLength()>0) {
+				
+				//int key= executing_job.getKey();
+				//Job value= executing_job.getValue();
+				
+				heap.min().getValue().setCurrentJobLength(heap.min().getValue().getCurrentJobLength()-1);
+				System.out.println("without removing the object");
+				System.out.println(heap.min().toString());
 				System.out.println();
+				counter++;
+				
+				
 			}
-			if (heap.get(i).getValue().getCurrentJobLength()==0) {
-				continue;
+			if (heap.min().getValue().getCurrentJobLength()==0) {
+				System.out.println();
+				System.out.println("when we remove the object");
+				System.out.println(heap.removeMin().toString());
+				System.out.println();
+				
 			}
 			
 			/**
@@ -155,8 +214,8 @@ public class PriorityQueueSimulatorTester {
 				System.out.println(heap.get(index).getValue().getJobPriority());
 				
 			}
-				
-			System.out.println(ctr);
+		
+			
 				}
 			
 			}
