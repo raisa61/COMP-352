@@ -101,36 +101,70 @@ public class PriorityQueueSimulatorTester {
 		 * trying the execution thing in a sorted order based on priority 
 		 */
 		int counter =0;
+		int ctr=0;
+
+
 		
 		//for(int i=0; i<heap.size(); i++) {
 			
-			while(!heap.isEmpty()) {
-			
+			//while(!heap.isEmpty()) {
 				
-			Entry<Integer,Job> executing_job = heap.removeMin();
+			for(int i=0; i<heap.size(); i++) {
+				System.out.println(heap.size());
+				
+				
+			//Entry<Integer,Job> executing_job = heap.removeMin();
+			//int key= executing_job.getKey();
+			//Job value= executing_job.getValue();
 			//reducing the length by 1 when it's being executed
-			executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
+			//executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
 			
 			/**
 			 * the counter is to check for the smallest time and reseting the priority
 			 */
-			counter++;
+			//counter++;
 			
-			System.out.println(executing_job.toString());
-		    
-			
-			if(counter%30==0) {
-				int index=reset_priority(heap);
+			//System.out.println(executing_job.toString());
+			/**
+			 * if the length is more than 0, put it back in the heap
+			 */
 				
+				System.out.println(heap.get(i).getValue().getCurrentJobLength());
+			if(heap.get(i).getValue().getCurrentJobLength()>0) {
+				Entry<Integer,Job> executing_job = heap.removeMin();
+				executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
+				System.out.println(executing_job.toString());
+				counter++;
+				heap.insert(heap.get(i).getKey(),heap.get(i).getValue());
+				ctr++;
+				System.out.println(" key= " + heap.get(i).getKey() + " value " +heap.get(i).getValue());
+				System.out.println();
+			}
+			if (heap.get(i).getValue().getCurrentJobLength()==0) {
+				continue;
+			}
+			
+			/**
+			 * reseting the first
+			 */
+			if(counter%30==0) {
+				
+				int index=reset_priority(heap);
 				heap.get(index).getValue().setJobPriority(1);
+			
 				System.out.println(heap.get(index).getValue().getJobPriority());
 				
-				}
 			}
+				
+			System.out.println(ctr);
+				}
+			
+			}
+			
+			
 			 
 			
-		}
-	
+		//}
 		
 		
 		//------------code upto this part works fine----------------
