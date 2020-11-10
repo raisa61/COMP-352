@@ -143,14 +143,11 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 		if (heap.isEmpty( )) 
 			return null;
 		
-		int space=heap.size();
+	
 		Entry<K,V> answer = heap.get(0); //getting the  answer from the root
 		swap(0, heap.size( ) - 1); //putting the minimum item at the end
 		heap.remove(heap.size( ) - 1); //removing it from the end
 		downheap(0); //downheaping to restore the heap property
-		space--;
-		heap.trimToSize();
-		System.out.println("The heap size is " +space);
 		
 		return answer;
 	}
@@ -162,8 +159,8 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 	}
 	
 	public Entry<K,V> get (int i) {
+		heap.trimToSize();
 		return heap.get(i);
 	}
 	
-
 }
