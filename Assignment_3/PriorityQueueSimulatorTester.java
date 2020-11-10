@@ -38,7 +38,7 @@ public class PriorityQueueSimulatorTester {
 	}
 	
 	
-
+//---------------------------don't think we need a method anymore ------------------------------------//
 	public static int reset_priority (ArrayListHeap<Integer, Job> heap) {
 		if (heap.isEmpty( )) 
 			return 0;
@@ -204,17 +204,36 @@ public class PriorityQueueSimulatorTester {
 			}
 			
 			/**
-			 * reseting the first
+			 * reseting the priority
 			 */
 			if(counter%30==0) {
 				
-				int index=reset_priority(heap);
-				heap.get(index).getValue().setJobPriority(1);
+				//int index=reset_priority(heap);
+				//heap.get(index).getValue().setJobPriority(1);
 			
-				System.out.println(heap.get(index).getValue().getJobPriority());
+				//System.out.println(heap.get(index).getValue().getJobPriority());
+				
+				/**
+				 * starvation process (matched to friends code)
+				 */
+				Job oldest = heap.get(0).getValue();
+				long temp= oldest.getEntryTime();
+				int temp_pos=0;
+				for(int i=1; i<heap.size();i++) {
+					if (temp<heap.get(i).getValue().getEntryTime()) {
+						oldest= heap.get(i).getValue();
+						temp_pos=i;
+						temp=oldest.getEntryTime();
+					}
+				}
+				/**
+				 * changing the priority for starvation process
+				 */
+				oldest.setFinalPriority(0);
+				heap.upheap(temp_pos);
+				oldest.setFinalPriority(1);
 				
 			}
-		
 			
 				}
 			
