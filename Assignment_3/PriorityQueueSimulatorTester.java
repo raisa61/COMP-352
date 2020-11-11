@@ -112,7 +112,7 @@ public class PriorityQueueSimulatorTester {
 		 * trying the execution thing in a sorted order based on priority 
 		 */
 		int counter =0;
-		//int ctr=0;
+		
 
 		    
 			while(!heap.isEmpty()) {
@@ -150,11 +150,11 @@ public class PriorityQueueSimulatorTester {
 				System.out.println("without removing the object");
 				System.out.println(heap.min().toString());
 				System.out.println();
-				counter++;
-				
+				counter++; // increasing the counter to check for the number of the jobs executed
 				current_time++;
 				
 			}
+			
 			
 
 			/**
@@ -164,6 +164,7 @@ public class PriorityQueueSimulatorTester {
                  //to check if all the jobs are getting out of the heap or not
 				System.out.println("when we remove the object");
 				System.out.println(heap.removeMin().toString());
+				
 				
 			}
 			
