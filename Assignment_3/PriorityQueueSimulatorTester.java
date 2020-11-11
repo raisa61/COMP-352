@@ -38,85 +38,14 @@ public class PriorityQueueSimulatorTester {
 	}
 	
 	
-//---------------------------don't think we need a method anymore ------------------------------------//
-	public static int reset_priority (ArrayListHeap<Integer, Job> heap) {
-		if (heap.isEmpty( )) 
-			return 0;
-		int j=0;
-	    int index=0;
-		long min= heap.get(j).getValue().getEntryTime();
-        for (int k=0; k<heap.size(); k++) {  
-        	
-                  if(heap.get(k).getValue().getEntryTime() < min){ 
-                     min = heap.get(k).getValue().getEntryTime(); 
-                    
-                     index=k;
-                    } 
-                  
-                    
-        }
-        return index;
-          
-	}
-	
-	/*public static void starvation (ArrayListHeap<Integer, Job> heap) {
-		
-		long oldest = heap.get(0).getValue().getEntryTime();
-		int temp_pos = 0;
-		
-		for (int i = 1; i<heap.size(); i++) {
-			if (oldest < heap.get(i).getValue().getEntryTime()) {
-				oldest = heap.get(i).getValue().getEntryTime();
-				temp_pos = i;
-				
-				//oldest = oldest.getValue().getEntryTime();
-			}
-		}
-		heap.get(temp_pos).getValue().setFinalPriority(0);
-		upheap(temp_pos);
-		heap.get(temp_pos).getValue().setFinalPriority(1);
-		
-		
-	}
-	private final void bubbleUp(int position) {
-		// base case 
-		if (position == 0) return;
-		if (compare(heap.get(parent(position)),heap.get(position))>0) {
-			return;
-		} else {
-			// swapping parent and child to restore minHeap
-//			Job temp = minHeap.get(parent(position));
-	//		minHeap.set(parent(position), minHeap.get(position));
-		//	minHeap.set(position, temp);
-			swap(parent(position), position);
-			bubbleUp(parent(position));
-		}
-	}
- 
-	
-	
-	public void starvationProcess() {
-		Job oldest = minHeap.get(0);
-		long temp = oldest.getEntryTime();
-		int temp_pos = 0;
-		
-		for (int i = 1; i<minHeap.size(); i++) {
-			if (temp < minHeap.get(i).getEntryTime()) {
-				oldest = minHeap.get(i);
-				temp_pos = i;
-				temp = oldest.getEntryTime();
-			}
-		}
-		// changing priority for starvation process
-		// putting 0 so that it moves to the root
-		oldest.setFinalPriority(0);
-		bubbleUp(temp_pos);	
-		oldest.setFinalPriority(1);
-	}
-	*/
-	
-	
 	public static void main(String[] args) {
+		
+		/**
+		 * to keep track of the time
+		 */
+		 long current_time=0;
+		 
+		
 		
 		/**
 		 * creating the job array
@@ -146,6 +75,8 @@ public class PriorityQueueSimulatorTester {
 		for(int i=0; i<jobsInputArray.length; i++) {
 			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
 			jobsInputArray[i].setEntryTime(i+1);
+			current_time++;
+			heap.get(i).getValue().setCycle_counter(0);
 			
 		}
 		
@@ -153,53 +84,40 @@ public class PriorityQueueSimulatorTester {
 		 * trying the execution thing in a sorted order based on priority 
 		 */
 		int counter =0;
-		int ctr=0;
+		//int ctr=0;
 
-
-		
-		//for(int i=0; i<heap.size(); i++) {
 			
 			while(!heap.isEmpty()) {
-				
-			//for(int i=0; i<heap.size(); i++) {
-				//System.out.println(heap.size());
-				
-				
-			//Entry<Integer,Job> executing_job = heap.removeMin();
-			//int key= executing_job.getKey();
-			//Job value= executing_job.getValue();
-			//reducing the length by 1 when it's being executed
-			//executing_job.getValue().setCurrentJobLength(executing_job.getValue().getCurrentJobLength()-1);
 			
-			/**
-			 * the counter is to check for the smallest time and reseting the priority
-			 */
-			//counter++;
-			
-			//System.out.println(executing_job.toString());
-			/**
-			 * if the length is more than 0, put it back in the heap
-			 */
-			
-				
+				//heap.min().getValue().setCycle_counter(0);
 			if(heap.min().getValue().getCurrentJobLength()>0) {
 				
-				//int key= executing_job.getKey();
-				//Job value= executing_job.getValue();
 				
 				heap.min().getValue().setCurrentJobLength(heap.min().getValue().getCurrentJobLength()-1);
+				/**
+				 * increasing the cycle, each time a job is being executed
+				 */
+				heap.min().getValue().setCycle_counter(heap.min().getValue().getCycle_counter()+1);
+			
+				
+				/**
+				 * removing from the heap with highest priority
+				 */
+				Entry<Integer,Job> executing_job = heap.removeMin();
+				int key= executing_job.getKey();
+				Job value= executing_job.getValue();
+				
+				/**
+				 * putting it back in the heap after all the values if the length is not 0
+				 */
+				heap.insert(key, value);
+				
 				System.out.println("without removing the object");
 				System.out.println(heap.min().toString());
 				System.out.println();
 				counter++;
 				
-				
-			}
-			if (heap.min().getValue().getCurrentJobLength()==0) {
-				System.out.println();
-				System.out.println("when we remove the object");
-				System.out.println(heap.removeMin().toString());
-				System.out.println();
+				current_time++;
 				
 			}
 			
@@ -208,11 +126,7 @@ public class PriorityQueueSimulatorTester {
 			 */
 			if(counter%30==0) {
 				
-				//int index=reset_priority(heap);
-				//heap.get(index).getValue().setJobPriority(1);
-			
-				//System.out.println(heap.get(index).getValue().getJobPriority());
-				
+				current_time++;
 				/**
 				 * starvation process (matched to friends code)
 				 */
@@ -234,6 +148,14 @@ public class PriorityQueueSimulatorTester {
 				oldest.setFinalPriority(1);
 				
 			}
+			
+			if (heap.min().getValue().getCurrentJobLength()==0) {
+		        //to check if all the jobs are getting out of the heap or not
+				System.out.println("when we remove the object");
+				System.out.println(heap.removeMin().toString());
+				
+			}
+			
 			
 				}
 			
