@@ -196,10 +196,29 @@ public class PriorityQueueSimulatorTester {
 			
 			System.out.println("current time:"+current_time);
 			
+		//kim avg value
+			int i;
+			long sum=0;
+			long avg=0;
+			
+			for (i=0; i<jobsInputArray.length;i++) {
+				sum += jobsInputArray[i].getWaitTime();
+				System.out.println("sum:"+sum); 
+			}
+			avg = sum / jobsInputArray.length;
+			Average=avg;
+			System.out.println("avg:"+Average);
+			
+			/*
+		
 			System.out.println("avg:"+Average); 
 			System.out.println("Execution time in milliseconds : " +
 					timeElapsed / 1000000);	 
-			
+			*/
+		
+		
+		
+		
 			}
 			
 		
