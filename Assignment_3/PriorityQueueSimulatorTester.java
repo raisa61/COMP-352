@@ -56,7 +56,7 @@ public class PriorityQueueSimulatorTester {
 		 * filling the array with deafult job objects
 		 */
 		for(int i=0; i<jobsInputArray.length;i++) {
-			jobsInputArray[i]= new Job("a",0,0,0,0,0,0,0);
+			jobsInputArray[i]= new Job("a",0,0,0,0,0);
 		}
 		
 		/**
@@ -76,7 +76,8 @@ public class PriorityQueueSimulatorTester {
 			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
 			jobsInputArray[i].setEntryTime(i+1);
 			current_time++;
-			heap.get(i).getValue().setCycle_counter(0);
+			heap.get(i).getValue().setEndTime(0);
+			
 			
 		}
 		
@@ -92,12 +93,17 @@ public class PriorityQueueSimulatorTester {
 				//heap.min().getValue().setCycle_counter(0);
 			if(heap.min().getValue().getCurrentJobLength()>0) {
 				
-				
 				heap.min().getValue().setCurrentJobLength(heap.min().getValue().getCurrentJobLength()-1);
 				/**
 				 * increasing the cycle, each time a job is being executed
 				 */
-				heap.min().getValue().setCycle_counter(heap.min().getValue().getCycle_counter()+1);
+				heap.min().getValue().setEndTime(heap.min().getValue().getEndTime()+1);
+				
+				/**
+				 * setting the wait time
+				 */
+				heap.min().getValue().setEndTime(1);
+				//heap.min().getValue().setEndTime(heap.min().getValue().getEndTime()-heap.min().getValue().getEntryTime()-heap.min().getValue().getJobLength());
 			
 				
 				/**
