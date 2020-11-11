@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.lang.Math;
 
 public class Job {
 	private String jobName;
@@ -167,7 +168,7 @@ public class Job {
 	public String toString() {
 		return "Now executing " + jobName + ". Job length: " + jobLength + " cycles. Current remaining length: " 
 	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority + " end time " +  endTime
-	            +" cycles. " + "wait time: " + waitTime;
+	            +" cycles. " + "wait time: " + Math.abs(waitTime);
 	}
 	
 	
