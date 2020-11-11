@@ -7,30 +7,10 @@ public class Job {
 	private int jobPriority;
 	private int finalPriority;
 	private long entryTime;
-	private long endTime;
 	private long waitTime;
-	
-	/**
-	 * to count the s
-	 */
-	private long cycle_counter;
+	private long endTime;
 	
 	
-	
-	/**
-	 * @return the _counter
-	 */
-	public long getCycle_counter() {
-		return cycle_counter;
-	}
-
-
-	/**
-	 * @param _counter the _counter to set
-	 */
-	public void setCycle_counter(long cycle_counter) {
-		this.cycle_counter = cycle_counter;
-	}
 
 
 	/** parametrized constructor
@@ -43,17 +23,14 @@ public class Job {
 	 * @param endTime
 	 * @param waitTime
 	 */
-	public Job(String jobName, int jobLength, int currentJobLength, int jobPriority, int finalPriority, long entryTime,
-			long endTime, long waitTime) {
-		super();
+	public Job(String jobName, int jobLength, int currentJobLength, int jobPriority, int finalPriority, long entryTime) {
 		this.jobName = jobName;
 		this.jobLength = jobLength;
 		this.currentJobLength = currentJobLength;
 		this.jobPriority = jobPriority;
 		this.finalPriority = finalPriority;
 		this.entryTime = entryTime;
-		this.endTime = endTime;
-		this.waitTime = waitTime;
+		
 	}
 
 
@@ -173,6 +150,7 @@ public class Job {
 	 * @return the waitTime
 	 */
 	public long getWaitTime() {
+	//	long waitTime=getEndTime()-getEntryTime()-getJobLength();
 		return waitTime;
 	}
 
@@ -188,11 +166,14 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Now executing " + jobName + ". Job length: " + jobLength + " cycles. Current remaining length: " 
-	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority + " cycle counter: " + cycle_counter 
-	            +" cycles.";
+	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority + " end time " +  endTime
+	            +" cycles. " + "wait time: " + waitTime;
 	}
 	
 	
 
+	
+	
+	
 
 }
