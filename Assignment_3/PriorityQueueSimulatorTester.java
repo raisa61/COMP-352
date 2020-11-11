@@ -191,10 +191,12 @@ public class PriorityQueueSimulatorTester {
 				 * decrease the current job length by 1 each time we execute a job
 				 */
 				if (oldest.getJobLength()==oldest.getCurrentJobLength()) { 
-					
+				
+				System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
 				oldest.setFinalPriority(0);
 				heap.upheap(temp_pos);
 			   	oldest.setFinalPriority(1);
+			   	System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
 			   	
 			   	pri_count++; //we increase the counter here, after the starvation process (NOT WORKING THO)
 				}
