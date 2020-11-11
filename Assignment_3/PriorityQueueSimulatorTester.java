@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -39,23 +40,48 @@ public class PriorityQueueSimulatorTester {
 	
 	
 	public static void main(String[] args) {
-		int pri_count=0;
+		
 		
 		/**
 		 * to keep track of the time
 		 */
 		 long current_time=0;
-		 float Average=0;
+		 
+		 /**
+		  * to find the sum of the wait times
+		  */
 		 long sum_wait=0;
+		 
+		 /**
+		  * to keep track of the priority changes
+		  */
+		 int pri_count=0;
+		
+		 /**
+		  * taking user input for the size of the array, 100 or 1000 or 10,000 or 100,000 or 1000000
+		  */
+		 System.out.println("Please enter the size you would like to execute from the options below: ");
+		 System.out.println("Press /'1'/ for size 100");
+		 System.out.println("Press /'2'/ for size 1000");
+		 System.out.println("Press /'3'/ for size 10000");
+		 System.out.println("Press /'4'/ for size 100000");
+		 System.out.println("Press /'5'/ for size 1000000");
+		 System.out.println();
+		 System.out.print("Enter your choice-->");
+		 Scanner sc= new Scanner(System.in);
+		 int choice= sc.nextInt();
+		 int size = 0;
+		 
+		 if(choice==1) {size=100;} if(choice==2) {size=1000;} if(choice==3) {size=10000;} if(choice==4) {size=100000;} if(choice==5) {size=1000000;}
 		
 		
 		/**
 		 * creating the job array
 		 */
-		Job[] jobsInputArray = new Job [100];
+		Job[] jobsInputArray = new Job [size];
 		
 		/**
-		 * filling the array with deafult job objects
+		 * filling the array with default job objects
 		 */
 		for(int i=0; i<jobsInputArray.length;i++) {
 			jobsInputArray[i]= new Job("a",0,0,0,0,0);
@@ -67,8 +93,6 @@ public class PriorityQueueSimulatorTester {
 		name_generate(jobsInputArray);
 		length_generate(jobsInputArray);
 		priority_generate(jobsInputArray);
-		
-		
 		
 		/**
 		 *dumping the array objects in the heap
@@ -93,7 +117,6 @@ public class PriorityQueueSimulatorTester {
 		    
 			while(!heap.isEmpty()) {
 			
-				//heap.min().getValue().setCycle_counter(0);
 			if(heap.min().getValue().getCurrentJobLength()>0) {
 				
 				heap.min().getValue().setCurrentJobLength(heap.min().getValue().getCurrentJobLength()-1);
@@ -109,21 +132,8 @@ public class PriorityQueueSimulatorTester {
 				/**
 				 * setting the wait time
 				 */
-				//heap.min().getValue().setWaitTime(1);
 				heap.min().getValue().setWaitTime(Math.abs(heap.min().getValue().getEndTime()-heap.min().getValue().getEntryTime()-heap.min().getValue().getJobLength()));
 				sum_wait+= Math.abs(heap.min().getValue().getEntryTime());
-				/*
-				int i;
-				long sum=0;
-				long avg=0;
-				
-				for (i=0; i<99;i++) {
-					sum += heap.get(i).getValue().getWaitTime();
-					System.out.println("sum:"+sum); 
-				}
-				avg = Math.abs(sum) / 100;
-				Average=avg;
-			*/
 				
 				/**
 				 * removing from the heap with highest priority
@@ -143,6 +153,17 @@ public class PriorityQueueSimulatorTester {
 				counter++;
 				
 				current_time++;
+				
+			}
+			
+
+			/**
+			 * we remove the object when the current job length is 0
+			 */
+			if (heap.min().getValue().getCurrentJobLength()==0) {
+                 //to check if all the jobs are getting out of the heap or not
+				System.out.println("when we remove the object");
+				System.out.println(heap.removeMin().toString());
 				
 			}
 			
@@ -175,71 +196,25 @@ public class PriorityQueueSimulatorTester {
 				
 			}
 			
-
-			
-			if (heap.min().getValue().getCurrentJobLength()==0) {
-
-				
-				
-		        //to check if all the jobs are getting out of the heap or not
-				System.out.println("when we remove the object");
-				System.out.println(heap.removeMin().toString());
-				
-				
-				
-			}
-			
 		}
 			
-			System.out.println("The average is " + sum_wait/jobsInputArray.length );
+			
 			long  endTime = System.nanoTime();
 			long timeElapsed = endTime - startTime;
 			
-			System.out.println("Pri_count:"+pri_count);
 			
-			System.out.println("current time:"+current_time);
-			
-			//System.out.println("avg:"+Average); 
-			System.out.println("Execution time in milliseconds : " +
-					timeElapsed / 1000000);	 
+			/**
+			 * printing the outputs
+			 */
+			System.out.println();
+			System.out.println("Current System Time(cycles): "+current_time);
+			System.out.println("Total number of jobs executed: " + jobsInputArray.length + " jobs");
+			System.out.println("Average Process Waiting Time: " + (sum_wait/jobsInputArray.length) + " cycles" );
+			System.out.println("Total number of priority changes: "+pri_count);
+			System.out.println("Actual system time needed to execute all jobs: " + (timeElapsed / 1000000) + " ms");	 
 			
 			}
-			
-		
-			 
-			
-		//}
-		
-		
-		//------------code upto this part works fine----------------
-		
-		
-		 //testing the insertion method from the Sorted List queue class
-		 
-		/*SortedListPQ<Integer, Job> PQ = new SortedListPQ<Integer, Job>();
-		for(int i=0; i<jobsInputArray.length; i++) {
-			PQ.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
-			
-		}
-		
-		
-		 //testing the removeMin method from the Sorted list queue class
-		 
-		ArrayList<Entry<Integer,Job>> sorted_array2 = new ArrayList<>( );
-		for(int i=0; i<jobsInputArray.length; i++) {
-			sorted_array2.add(PQ.removeMin());
-		}
-		
-		
-		 //printing out the sorted array from the PQ class
-		 
-		System.out.println("Method from the SortedListPQ class");
-		for (Entry<Integer, Job> sorted: sorted_array2) {
-            System.out.println(sorted.toString());
-        }
-        */
-		
-		
+				
 		
 	}
 
