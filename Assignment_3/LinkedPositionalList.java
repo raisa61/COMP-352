@@ -161,5 +161,32 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 	   return addBetween(e, node, node.getNext( ));
 	   }
 	  
+	  /**
+	   * replaces the element at position p and returns the old element
+	   */
+	  public E set(Position<E> p, E e) throws IllegalArgumentException {
+		   Node<E> node = validate(p);
+		   E answer = node.getElement( );
+		   node.setElement(e);
+		   return answer;
+		   }
+	  
+	  /**
+	   * removes the element stored at position p and returns it
+	   */
+	   public E remove(Position<E> p) throws IllegalArgumentException {
+		   Node<E> node = validate(p);
+		   Node<E> predecessor = node.getPrev( );
+		   Node<E> successor = node.getNext( );
+		   predecessor.setNext(successor);
+		   successor.setPrev(predecessor);
+		   size--;
+		   E answer = node.getElement( );
+		   node.setElement(null); // help with garbage collection
+		   node.setNext(null); // and convention for defunct node
+		   node.setPrev(null);
+		   return answer;
+		   }
+	  
 	  
 }
