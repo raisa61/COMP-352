@@ -72,6 +72,7 @@ public class PriorityQueueSimulatorTester {
 		/**
 		 *dumping the array objects in the heap
 		 */
+		long startTime = System.nanoTime();
 		ArrayListHeap<Integer, Job> heap = new ArrayListHeap<Integer, Job>();
 		for(int i=0; i<jobsInputArray.length; i++) {
 			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
@@ -88,7 +89,7 @@ public class PriorityQueueSimulatorTester {
 		int counter =0;
 		//int ctr=0;
 
-			
+		    
 			while(!heap.isEmpty()) {
 			
 				//heap.min().getValue().setCycle_counter(0);
@@ -188,13 +189,16 @@ public class PriorityQueueSimulatorTester {
 			
 			
 				}
+			long  endTime = System.nanoTime();
+			long timeElapsed = endTime - startTime;
 			
 			System.out.println("Pri_count:"+pri_count);
 			
 			System.out.println("current time:"+current_time);
 			
 			System.out.println("avg:"+Average); 
-			System.out.println(java.time.LocalTime.now());  
+			System.out.println("Execution time in milliseconds : " +
+					timeElapsed / 1000000);	 
 			
 			}
 			
