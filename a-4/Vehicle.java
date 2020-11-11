@@ -1,14 +1,4 @@
 import java.util.Stack;
-//Assignment (3)
-//Programming Question 
-//Written by: (Marwan Jabbour, 40151859)
-//-----------------------------------------------------
-
-/**
-* 
-* @author marwanjabbour Name and ID (Marwan Jabbour, 40151859) Comp 352
-*         Assignment 3, Due Date Sunday, June 14, 2020
-*/
 
 public class Vehicle {
 
