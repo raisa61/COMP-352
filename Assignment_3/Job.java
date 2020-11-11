@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Job {
 	private String jobName;
 	private int jobLength;
@@ -8,7 +10,29 @@ public class Job {
 	private long endTime;
 	private long waitTime;
 	
+	/**
+	 * to count the s
+	 */
+	private long cycle_counter;
 	
+	
+	
+	/**
+	 * @return the _counter
+	 */
+	public long getCycle_counter() {
+		return cycle_counter;
+	}
+
+
+	/**
+	 * @param _counter the _counter to set
+	 */
+	public void setCycle_counter(long cycle_counter) {
+		this.cycle_counter = cycle_counter;
+	}
+
+
 	/** parametrized constructor
 	 * @param jobName
 	 * @param jobLength
@@ -164,9 +188,11 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Now executing " + jobName + ". Job length: " + jobLength + " cycles. Current remaining length: " 
-	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority ;
+	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority + " cycle counter: " + cycle_counter 
+	            +" cycles.";
 	}
 	
 	
-}
 
+
+}
