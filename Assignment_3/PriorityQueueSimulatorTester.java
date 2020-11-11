@@ -39,12 +39,13 @@ public class PriorityQueueSimulatorTester {
 	
 	
 	public static void main(String[] args) {
+		int pri_count=0;
 		
 		/**
 		 * to keep track of the time
 		 */
 		 long current_time=0;
-		 
+		 float Average=0;
 		
 		
 		/**
@@ -94,6 +95,9 @@ public class PriorityQueueSimulatorTester {
 			if(heap.min().getValue().getCurrentJobLength()>0) {
 				
 				heap.min().getValue().setCurrentJobLength(heap.min().getValue().getCurrentJobLength()-1);
+				
+			
+				
 				/**
 				 * increasing the cycle, each time a job is being executed
 				 */
@@ -102,9 +106,20 @@ public class PriorityQueueSimulatorTester {
 				/**
 				 * setting the wait time
 				 */
-				heap.min().getValue().setEndTime(1);
-				//heap.min().getValue().setEndTime(heap.min().getValue().getEndTime()-heap.min().getValue().getEntryTime()-heap.min().getValue().getJobLength());
-			
+				//heap.min().getValue().setWaitTime(1);
+				heap.min().getValue().setWaitTime(Math.abs(heap.min().getValue().getEndTime()-heap.min().getValue().getEntryTime()-heap.min().getValue().getJobLength()));
+				/*
+				int i;
+				long sum=0;
+				long avg=0;
+				
+				for (i=0; i<99;i++) {
+					sum += heap.get(i).getValue().getWaitTime();
+					System.out.println("sum:"+sum); 
+				}
+				avg = Math.abs(sum) / 100;
+				Average=avg;
+			*/
 				
 				/**
 				 * removing from the heap with highest priority
@@ -152,22 +167,38 @@ public class PriorityQueueSimulatorTester {
 				oldest.setFinalPriority(0);
 				heap.upheap(temp_pos);
 				oldest.setFinalPriority(1);
+				pri_count++;
 				
 			}
 			
+
+			
 			if (heap.min().getValue().getCurrentJobLength()==0) {
+
+				
+				
 		        //to check if all the jobs are getting out of the heap or not
 				System.out.println("when we remove the object");
 				System.out.println(heap.removeMin().toString());
 				
+				
+				
 			}
+			
 			
 			
 				}
 			
+			System.out.println("Pri_count:"+pri_count);
+			
+			System.out.println("current time:"+current_time);
+			
+			System.out.println("avg:"+Average); 
+			System.out.println(java.time.LocalTime.now());  
+			
 			}
 			
-			
+		
 			 
 			
 		//}
