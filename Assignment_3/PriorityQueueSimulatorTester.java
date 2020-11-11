@@ -175,7 +175,7 @@ public class PriorityQueueSimulatorTester {
 				
 				current_time++;
 				/**
-				 * starvation process (matched to friends code)
+				 * starvation process 
 				 */
 				Job oldest = heap.get(0).getValue();
 				long temp= oldest.getEntryTime();
