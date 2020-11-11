@@ -100,7 +100,7 @@ public class PriorityQueueSimulatorTester {
 		long startTime = System.nanoTime();
 		ArrayListHeap<Integer, Job> heap = new ArrayListHeap<Integer, Job>();
 		for(int i=0; i<jobsInputArray.length; i++) {
-			heap.insert(jobsInputArray[i].getJobPriority(), jobsInputArray[i]);
+			heap.insert(jobsInputArray[i].getFinalPriority(), jobsInputArray[i]);
 			jobsInputArray[i].setEntryTime(i+1);
 			current_time++;
 			heap.get(i).getValue().setEndTime(0);
@@ -137,9 +137,8 @@ public class PriorityQueueSimulatorTester {
 				 * removing from the heap with highest priority
 				 */
 				Entry<Integer,Job> executing_job = heap.removeMin();
-				int key= executing_job.getKey();
 				Job value= executing_job.getValue();
-				
+				int key= executing_job.getKey();
 				/**
 				 * putting it back in the heap after all the values if the length is not 0
 				 */
@@ -169,6 +168,9 @@ public class PriorityQueueSimulatorTester {
 			 */
 			if(counter%30==0) {
 				current_time++;
+				System.out.println();
+				System.out.println("COUNTER REACHED 30");
+				System.out.println();
 				/**
 				 * looking for the oldest job in the heap
 				 */
