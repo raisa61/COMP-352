@@ -4,17 +4,6 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.*;
 
-//Assignment (3)
-//Programming Question: Driver class
-//Written by: (Marwan Jabbour, 40151859)
-//-----------------------------------------------------
-
-/**
- * 
- * @author marwanjabbour Name and ID (Marwan Jabbour, 40151859) Comp 352
- *         Assignment 3, Due Date Sunday, June 14, 2020
- */
-
 public class Driver {
 
 	public static void main(String[] args) {
@@ -96,7 +85,7 @@ public class Driver {
 		accidents_pass.push(d3);
 		accidents_pass.push(d4);
 
-		myCVR.add("A123456789", "marwan", "tesla", 98765, accidents_pass);
+		myCVR.add("A123456789", "Alex", "tesla", 98765, accidents_pass);
 		myCVR.add("B123456789", "Johnathan", "GMC", 11111, accidents_pass);
 		myCVR.add("D123456789", "Raymond", "TOKO", 22222, accidents_pass);
 		sor = myCVR.allKeys();
@@ -289,7 +278,7 @@ public class Driver {
 		 * "   brand: " + bra + "   price: $" + pr + " "); pw.println();
 		 * 
 		 * } pw.println(); System.out.println(); pw.println(
-		 * "Test method add(key,value) : \n\nkey=A123456789 \nowner= marwan \nbrand=tesla \nprice=98765 \ndate1= 1/2/2000\ndate2= 4/3/1999\ndate3=1/1/2010\ndate4=10/11/1989\n"
+		 * "Test method add(key,value) : \n\nkey=A123456789 \nowner= Alex \nbrand=tesla \nprice=98765 \ndate1= 1/2/2000\ndate2= 4/3/1999\ndate3=1/1/2010\ndate4=10/11/1989\n"
 		 * ); System.out.println("add(key,value)"); pw.println(
 		 * "Test method add(key,value) : \n\nkey=B123456789 \nowner= Johnathan \nbrand=GMC \nprice=11111 \ndate1= 1/2/2000\ndate2= 4/3/1999\ndate3=1/1/2010\ndate4=10/11/1989\n"
 		 * ); System.out.println("add(key,value)"); Date d1 = new Date(1, 2, 2000); Date
@@ -299,7 +288,7 @@ public class Driver {
 		 * Stack<Date> accidents_pass = new Stack<Date>(); accidents_pass.push(d1);
 		 * accidents_pass.push(d2); accidents_pass.push(d3); accidents_pass.push(d4);
 		 * 
-		 * myCVR.add("A123456789", "marwan", "tesla", 98765, accidents_pass);
+		 * myCVR.add("A123456789", "Alex", "tesla", 98765, accidents_pass);
 		 * myCVR.add("B123456789", "Johnathan", "GMC", 11111, accidents_pass);
 		 * myCVR.add("C123456789", "boy", "toyo", 1111, accidents_pass);
 		 * myCVR.add("D123456789", "boy", "toyo", 1111, accidents_pass); pw.println();
@@ -387,7 +376,7 @@ public class Driver {
 		 * ArrayList<Date> bb = myCVR.prevAccids("B123456789"); pw.print(bb);
 		 * 
 		 * for (Date d : bb) { System.out.println(d); } pw.println();
-		 * pw.println("Thanks for using the CVR program by Marwan Jabbour"); pw.close();
+		 * pw.println("Thanks for using the CVR program"); pw.close();
 		 */
 	}
 
