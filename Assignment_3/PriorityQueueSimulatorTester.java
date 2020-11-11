@@ -46,6 +46,7 @@ public class PriorityQueueSimulatorTester {
 		 */
 		 long current_time=0;
 		 float Average=0;
+		 long sum_wait=0;
 		
 		
 		/**
@@ -104,11 +105,13 @@ public class PriorityQueueSimulatorTester {
 				 */
 				heap.min().getValue().setEndTime(heap.min().getValue().getEndTime()+1);
 				
+				
 				/**
 				 * setting the wait time
 				 */
 				//heap.min().getValue().setWaitTime(1);
 				heap.min().getValue().setWaitTime(Math.abs(heap.min().getValue().getEndTime()-heap.min().getValue().getEntryTime()-heap.min().getValue().getJobLength()));
+				sum_wait+= Math.abs(heap.min().getValue().getEntryTime());
 				/*
 				int i;
 				long sum=0;
@@ -186,9 +189,9 @@ public class PriorityQueueSimulatorTester {
 				
 			}
 			
+		}
 			
-			
-				}
+			System.out.println("The average is " + sum_wait/jobsInputArray.length );
 			long  endTime = System.nanoTime();
 			long timeElapsed = endTime - startTime;
 			
@@ -196,29 +199,10 @@ public class PriorityQueueSimulatorTester {
 			
 			System.out.println("current time:"+current_time);
 			
-		//kim avg value
-			int i;
-			long sum=0;
-			long avg=0;
-			
-			for (i=0; i<jobsInputArray.length;i++) {
-				sum += jobsInputArray[i].getWaitTime();
-				System.out.println("sum:"+sum); 
-			}
-			avg = sum / jobsInputArray.length;
-			Average=avg;
-			System.out.println("avg:"+Average);
-			
-			/*
-		
-			System.out.println("avg:"+Average); 
+			//System.out.println("avg:"+Average); 
 			System.out.println("Execution time in milliseconds : " +
 					timeElapsed / 1000000);	 
-			*/
-		
-		
-		
-		
+			
 			}
 			
 		
