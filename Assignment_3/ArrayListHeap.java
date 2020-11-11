@@ -159,7 +159,7 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 	}
 	
 	public Entry<K,V> get (int i) {
-		heap.trimToSize();
+		
 		return heap.get(i);
 	}
 	
