@@ -1,17 +1,6 @@
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-//Assignment (3)
-//Programming Question 
-//Written by: (Marwan Jabbour, 40151859)
-//-----------------------------------------------------
-
-/**
- * 
- * @author marwanjabbour Name and ID (Marwan Jabbour, 40151859) Comp 352
- *         Assignment 3, Due Date Sunday, June 14, 2020
- */
-
 public class DoublyLinkedList {
 
 	// Nested node class
