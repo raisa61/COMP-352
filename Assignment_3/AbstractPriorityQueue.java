@@ -24,8 +24,8 @@ public class AbstractPriorityQueue<K,V> {
 		/**
 		 * setters
 		 */
-		protected void setKey(K key) { k = key; }
-		protected void setValue(V value) { v = value; }
+		public void setKey(K key) { k = key; }
+		public void setValue(V value) { v = value; }
 		
 		@Override
 		public String toString() {
@@ -38,7 +38,7 @@ public class AbstractPriorityQueue<K,V> {
 	private Comparator<K> comp;
 	
 	/**
-	 * empty priority queue using the given comparator to compare keys
+	 * empty priority queue using the given comparator to comapre keys
 	 * @param c
 	 */
 	protected AbstractPriorityQueue(Comparator<K> c) { comp = c; }
@@ -67,29 +67,16 @@ public class AbstractPriorityQueue<K,V> {
 		}
 	}
 	
+	
 	/** error in these parts Idk how to determine the size, should I introduce a size variable??
 	 * returning the size
 	 
 	public int size() {
-		return AbstractPriorityQueue.size();
+		return size;
 	}
 	
 	 * checking whether the priority queue is empty
-	 /**
-	 Kim: even for this you can go AbstractPriorityQueue.size()==0
-	 I need to know what you're trying to do cause check this out
-	 lets say we're doing this in main
-        PriorityQueue<String> pq=
-                new PriorityQueue<String>(a,b);
-     ....
-       you can do while (pq.size() != 0)
-        {
-            System.out.println(pq.remove()); ...
-        }
-    }
-or you could do it how you're getting your size in your sorted list it's gonna be the same thing
-
-*/	 
+	 
 	public boolean isEmpty( ) { return size( ) == 0; }
 	*/
 	
