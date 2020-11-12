@@ -157,7 +157,7 @@ public class PriorityQueueSimulatorTester {
 			 * we remove the object when the current job length is 0
 			 */
 			if (heap.min().getValue().getCurrentJobLength()==0) {
-                 //to check if all the jobs are getting out of the heap or not
+                         //to check if all the jobs are getting out of the heap or not
 				System.out.println("when we remove the object");
 				System.out.println(heap.removeMin().toString());
 
@@ -193,12 +193,12 @@ public class PriorityQueueSimulatorTester {
 				if (oldest.getJobLength()==oldest.getCurrentJobLength()) { 
 				
 				System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
-				oldest.setFinalPriority(0);
-				heap.upheap(temp_pos);
+				//oldest.setFinalPriority(0);
+				//heap.upheap(temp_pos);
 			   	oldest.setFinalPriority(1);
 			   	System.out.println("The oldest job is after reseting priority: "+ oldest.toString());
 			   	System.out.println();
-			   //	System.out.println("Removing the oldest object from the heap");
+			        //System.out.println("Removing the oldest object from the heap");
 			    heap.min().setKey(1);
 			    heap.min().setValue(oldest);
 			   	pri_count++; //we increase the counter here, after the starvation process
