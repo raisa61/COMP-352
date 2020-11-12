@@ -163,4 +163,10 @@ public class ArrayListHeap<K,V> extends AbstractPriorityQueue<K,V> {
 		return heap.get(i);
 	}
 	
+    public Entry<K,V> remove (K key, V value) {
+    	Entry<K,V> oldest = new PQEntry<>(key, value);
+    	heap.remove(oldest);
+    	return oldest;
+    	
+    }
 }
