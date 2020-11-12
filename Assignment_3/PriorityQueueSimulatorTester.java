@@ -196,9 +196,12 @@ public class PriorityQueueSimulatorTester {
 				oldest.setFinalPriority(0);
 				heap.upheap(temp_pos);
 			   	oldest.setFinalPriority(1);
-			   	System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
+			   	System.out.println("The oldest job is after reseting priority: "+ oldest.toString());
+			   	System.out.println();
+			   	System.out.println("Removing the oldest object from the heap");
+			        System.out.println();
 			   	
-			   	pri_count++; //we increase the counter here, after the starvation process (NOT WORKING THO)
+			   	pri_count++; //we increase the counter here, after the starvation process
 				}
 					
 			}
