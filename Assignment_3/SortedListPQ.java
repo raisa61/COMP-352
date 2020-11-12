@@ -1,83 +1,43 @@
-import java.util.ArrayList;
 import java.util.Comparator;
 
-public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V>  {
+//An implementation of a priority queue with a sorted list.
+public class SortedListPQ<K,V> extends AbstractPriorityQueue<K,V> {
+// primary collection of priority queue entries
+	private PositionalList<Entry<K,V>> list = new LinkedPositionalList<>( );
+
+//Creates an empty priority queue based on the natural ordering of its keys.
+public SortedListPQ( ) { super( ); }
+//Creates an empty priority queue using the given comparator to order keys.
+public SortedListPQ(Comparator<K> comp) { super(comp); }
+
+//Inserts a key-value pair and returns the entry created.
+public Entry<K,V> insert(K key, V value) throws IllegalArgumentException {
+	checkKey(key); // auxiliary key-checking method (could throw exception)
+	Entry<K,V> newest = new PQEntry<>(key, value);
+	Position<Entry<K,V>> walk = list.last( );
 	
-	private ArrayList<Entry<K,V>> list;
-	private Comparator<K> comp;
-	
-	  /**
-	   *  Constructor
-	   */
-	  public SortedListPQ() {
-	    list = new ArrayList<Entry<K,V>>();
-	  }
-	  
-	  /**
-	   * to check if the queue is empty
-	   */
-	  public boolean isEmpty() {
-		    return list.size() == 0;
-		  }
-	  
-	  /**
-	   * inserting an element in the sorted list (right position)
-	   */
-	  public Entry<K,V> insert(K key, V value) {
-		  checkKey(key); 
-		  Entry<K,V> newest = new PQEntry<>(key, value);
-		  
-		  //if the list is empty, then add the entry to the list
-		  if(list.isEmpty()) {
-			  list.add(0,newest);		  
-			  }
-		  
-		  else {
-			  
-		  
-		 // if the new key is the smallest, add it to the beginning
-		  Entry<K,V>start=list.get(0); 
-		  if (compare(start,newest)>0) {
-			  list.add(0,newest);
-		  }
-		  
-		  //if the key is largest, we'll add it to the end
-		  Entry<K,V>last=list.get(list.size()-1);
-		  if(compare(last, newest)<0) {
-			 list.add(list.size()-1,newest);
-		  }
-		  
-		  //to add the key between two keys
-		  int p=0;
-		  while (p!=list.size()-1) {
-			  Entry<K,V> before = list.get(p);
-			  Entry<K,V> after = list.get(p+1);
-			  
-			  if (((compare(before,newest)<0) && (compare(after,newest)>0))) { //need to add a case if the keys are similar then add it after the similar ones
-				  list.add(p+1,newest);
-			  }
-			 
-			  p++;
-		  }
-		  }
-		  return newest;
-		  
-	  }
-	  
-	  public Entry<K,V> min() {
-		    if (list.size() == 0)
-		      return null;
-		    else
-		      return list.get(0);   // the first element is smallest
-		  }
-	  
-	  public Entry<K,V> removeMin() {
-		    if (list.size() == 0)
-		      return null;
-		    else                                  
-		      return list.remove(0);  // and return the smallest element
-		  }
-
-
-
+// walk backward, looking for smaller key
+	while (walk != null && compare(newest, walk.getElement( )) < 0)
+		walk = list.before(walk);
+	if (walk == null)
+		list.addFirst(newest); // new key is smallest
+	else
+		list.addAfter(walk, newest); // newest goes after walk
+	return newest;
 }
+
+//Returns (but does not remove) an entry with minimal key.
+ public Entry<K,V> min( ) {
+	 if (list.isEmpty( )) return null;
+ return list.first( ).getElement( );
+ }
+
+ //Removes and returns an entry with minimal key.
+ public Entry<K,V> removeMin( ) {
+	 if (list.isEmpty( )) return null;
+ return list.remove(list.first( ));
+ }
+
+//Returns the number of items in the priority queue.
+ public int size( ) { return list.size( ); }
+ }
