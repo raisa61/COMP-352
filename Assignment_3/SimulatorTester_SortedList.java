@@ -183,9 +183,12 @@ public class SimulatorTester_SortedList{
 							oldest=pq.get_element(walk).getValue();
 							temp=oldest.getEntryTime();	
 						}
-						walk=pq.after(walk);
+						walk=pq.after_position(walk);
 						
 					}
+					
+					
+					//}
 					/**STARVATION PROCESS
 					 * checking if the oldest job in the pq has been executed or not, if not, then reset priority
 					 * if the initial job length and the current job length is same, means it has never been executed before, cause we 
@@ -197,9 +200,8 @@ public class SimulatorTester_SortedList{
 				   	oldest.setFinalPriority(1);
 				   	System.out.println("The oldest job is after reseting priority: "+ oldest.toString());
 				   	System.out.println();
-				    //System.out.println("Removing the oldest object from the pq");
-				    pq.remove(walk);
-				    pq.insert(1,oldest);
+				   	pq.min().setKey(1);
+				   	pq.min().setValue(oldest);
 				   	pri_count++; //we increase the counter here, after the starvation process
 					}
 					
