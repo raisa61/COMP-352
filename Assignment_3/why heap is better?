@@ -1,0 +1,3 @@
+find min and max, delete min and max, and insert are the three most important operations of a min(or max)-heap,
+and they usually have complexity of O(1), O(log𝑛) and O(log𝑛) respectively if you implement a min/max-heap by a binary tree these complexities are less than 
+the ones in sorted list. Due to these less complexities it's more feasible to use heaps in comaprison to the list.
