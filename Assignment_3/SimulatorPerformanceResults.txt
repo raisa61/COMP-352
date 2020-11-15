@@ -1,0 +1,41 @@
+HEAP IMPLEMENTATION ==>
+
+Current System Time(cycles): 3642
+Total number of jobs executed: 100 jobs
+Average Process Waiting Time: 1685 cycles
+Total number of priority changes: 3
+Actual system time needed to execute all jobs: 135 ms
+
+Current System Time(cycles): 37814
+Total number of jobs executed: 1000 jobs
+Average Process Waiting Time: 17794 cycles
+Total number of priority changes: 6
+Actual system time needed to execute all jobs: 1109 ms
+
+Current System Time(cycles): 378161
+Total number of jobs executed: 10000 jobs
+Average Process Waiting Time: 177332 cycles
+Total number of priority changes: 12
+Actual system time needed to execute all jobs: 25035 ms
+
+
+SORTED LIST IMPLEMENTATION ==>
+
+Current System Time(cycles): 3180
+Total number of jobs executed: 100 jobs
+Average Process Waiting Time: 1508 cycles
+Total number of priority changes: 3
+Actual system time needed to execute all jobs: 44 ms
+
+Current System Time(cycles): 37274
+Total number of jobs executed: 1000 jobs
+Average Process Waiting Time: 17725 cycles
+Total number of priority changes: 4
+Actual system time needed to execute all jobs: 339 ms
+
+Current System Time(cycles): 378218
+Total number of jobs executed: 10000 jobs
+Average Process Waiting Time: 177949 cycles
+Total number of priority changes: 7
+Actual system time needed to execute all jobs: 35379 ms
+
