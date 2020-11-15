@@ -143,10 +143,7 @@ public class PriorityQueueSimulatorTester {
 				 * putting it back in the heap after all the values if the length is not 0
 				 */
 				heap.insert(key, value);
-				
-				System.out.println("without removing the object");
 				System.out.println(heap.min().toString());
-				System.out.println();
 				counter++; // increasing the counter to check for the number of the jobs executed
 				current_time++;
 				
@@ -157,9 +154,7 @@ public class PriorityQueueSimulatorTester {
 			 * we remove the object when the current job length is 0
 			 */
 			if (heap.min().getValue().getCurrentJobLength()==0) {
-                         //to check if all the jobs are getting out of the heap or not
-				System.out.println("when we remove the object");
-				System.out.println(heap.removeMin().toString());
+               heap.removeMin();
 
 			}
 			
@@ -168,9 +163,6 @@ public class PriorityQueueSimulatorTester {
 			 */
 			if(counter%30==0) {
 				current_time++;
-				System.out.println();
-				System.out.println("COUNTER REACHED 30");
-				System.out.println();
 				/**
 				 * looking for the oldest job in the heap
 				 */
@@ -191,24 +183,12 @@ public class PriorityQueueSimulatorTester {
 				 * decrease the current job length by 1 each time we execute a job
 				 */
 				if (oldest.getJobLength()==oldest.getCurrentJobLength()) { 
-				
-				System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
-				//oldest.setFinalPriority(0);
-				//heap.upheap(temp_pos);
 			   	oldest.setFinalPriority(1);
-			   	System.out.println("The oldest job is after reseting priority: "+ oldest.toString());
-			   	System.out.println();
-			    //System.out.println("Removing the oldest object from the heap");
 			    heap.remove(oldest.getFinalPriority(),oldest);
 			    heap.insert(1,oldest);
 			   	pri_count++; //we increase the counter here, after the starvation process
 				}
 				
-				else 
-				{   System.out.println();
-					System.out.println("Oldest job " + oldest.getJobName() + " has been executed once already");
-					System.out.println();
-				}
 					
 			}
 			
