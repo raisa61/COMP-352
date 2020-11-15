@@ -1,24 +1,9 @@
 Priority queue using heap==>
 
 TIME COMPLEXITY:
-//not sure if we need from 1 to 6
-1) int parent(int j) => Big-O = O(1)
-2) int left(int j) => Big-O = O(1)
-3) int right(int j) => Big-O = O(1)
-4) boolean hasLeft(int j) => Big-O = O(1)
-5) boolean hasRight(int j) => Big-O = O(1)
-6) void swap(int i, int j) => Big-O = O(1)
-7) void upheap (int j) => Big-O = O(nlogn)
-8) void downheap(int j) => Big-O = O(nlogn)
-9) int size() => Big-O = O(1)
-10)Entry<K,V> min => Big-O = O(1)
-11)Entry<K,V> insert (K key, V value) => Big-O = O(nlogn)
-12)Entry<K,V> removeMin() => Big-O = O(nlogn)
-13)boolean isEmpty() => Big-O = O(1)
-14)Entry<K,V> remove (k key, V value) => Big-O = O(1)
-15)Entry<K,V> get (int i) => Big-O = O(1)
+The time complexity of a heap is O(nlogn). Where n is the number of the elements and logn is the height of the heap.
 
-Omega is logn
+Omega is logn.
 
 SPACE COMPLEXITY:
 
