@@ -45,17 +45,17 @@ public class SimulatorTester_SortedList{
 		/**
 		 * to keep track of the time
 		 */
-		 long current_time=0;
+		 long current_time1=0;
 		 
 		 /**
 		  * to find the sum of the wait times
 		  */
-		 long sum_wait=0;
+		 long sum_wait1=0;
 		 
 		 /**
 		  * to keep track of the priority changes
 		  */
-		 int pri_count=0;
+		 int pri_count1=0;
 		
 		 /**
 		  * taking user input for the size of the array, 100 or 1000 or 10,000 or 100,000 or 1000000
@@ -79,7 +79,7 @@ public class SimulatorTester_SortedList{
 		 * creating the job array
 		 */
 		Job[] jobsInputArray = new Job [size];
-		
+
 		/**
 		 * filling the array with default job objects
 		 */
@@ -104,17 +104,17 @@ public class SimulatorTester_SortedList{
 		 * dumping the array objects in the sorted list
 		 */
 		SortedListPQ<Integer,Job> pq = new SortedListPQ<Integer,Job>();
-		long startTime = System.nanoTime();
+		long startTime1 = System.nanoTime();
 		for(int i=0; i<jobsInputArray.length; i++) {
 			pq.insert(jobsInputArray[i].getFinalPriority(), jobsInputArray[i]);
 			jobsInputArray[i].setEntryTime(i+1);
-			current_time++;
+			current_time1++;
 		}
 		
 		/**
 		 * doing the execution
 		 */
-		int counter=0;
+		int counter1=0;
 		while (!pq.isEmpty()) {
 			
 		if(pq.min().getValue().getCurrentJobLength()>0) {
@@ -131,7 +131,7 @@ public class SimulatorTester_SortedList{
 				 * setting the wait time
 				 */
 				pq.min().getValue().setWaitTime(Math.abs(pq.min().getValue().getEndTime()-pq.min().getValue().getEntryTime()-pq.min().getValue().getJobLength()));
-				sum_wait+= Math.abs(pq.min().getValue().getEntryTime());
+				sum_wait1+= Math.abs(pq.min().getValue().getEntryTime());
 				
 				/**
 				 * removing from the pq with highest priority
@@ -143,12 +143,8 @@ public class SimulatorTester_SortedList{
 				 * putting it back in the pq after all the values if the length is not 0
 				 */
 				pq.insert(key, value);
-				
-				System.out.println("without removing the object");
-				System.out.println(pq.min().toString());
-				System.out.println();
-				counter++; // increasing the counter to check for the number of the jobs executed
-				current_time++;
+				counter1++; // increasing the counter1 to check for the number of the jobs executed
+				current_time1++;
 				
 			}
 		
@@ -156,20 +152,15 @@ public class SimulatorTester_SortedList{
 		    * we remove the object when the current job length is 0
 		    */
 		       if (pq.min().getValue().getCurrentJobLength()==0) {
-                //to check if all the jobs are getting out of the pq or not
-			    System.out.println("when we remove the object");
-			    System.out.println(pq.removeMin().toString());
+                pq.removeMin();
 
 		       }
 		       
 		       /**
 				 * resetting the priority
 				 */
-				if(counter%30==0) {
-					current_time++;
-					System.out.println();
-					System.out.println("COUNTER REACHED 30");
-					System.out.println(); 
+				if(counter1%30==0) {
+					current_time1++;
 					/**
 					 * looking for the oldest job in the pq
 					 */
@@ -195,38 +186,28 @@ public class SimulatorTester_SortedList{
 					 * decrease the current job length by 1 each time we execute a job
 					 */
 					if (oldest.getJobLength()==oldest.getCurrentJobLength()) { 
-					
-					System.out.println("The oldest job is before reseting priority: "+ oldest.toString());
 				   	oldest.setFinalPriority(1);
-				   	System.out.println("The oldest job is after reseting priority: "+ oldest.toString());
-				   	System.out.println();
 				   	pq.min().setKey(1);
 				   	pq.min().setValue(oldest);
-				   	pri_count++; //we increase the counter here, after the starvation process
-					}
-					
-					else 
-					{   System.out.println();
-						System.out.println("Oldest job " + oldest.getJobName() + " has been executed once already");
-						System.out.println();
+				   	pri_count1++; //we increase the counter1 here, after the starvation process
 					}
 						
 				}
 				
 			}
 				
-				long  endTime = System.nanoTime();
-				long timeElapsed = endTime - startTime;
+				long  endTime1 = System.nanoTime();
+				long timeElapsed = endTime1 - startTime1;
 				
 				
 				/**
 				 * printing the outputs
 				 */
 				System.out.println();
-				System.out.println("Current System Time(cycles): "+current_time);
+				System.out.println("Current System Time(cycles): "+current_time1);
 				System.out.println("Total number of jobs executed: " + jobsInputArray.length + " jobs");
-				System.out.println("Average Process Waiting Time: " + (sum_wait/jobsInputArray.length) + " cycles" );
-				System.out.println("Total number of priority changes: "+pri_count);
+				System.out.println("Average Process Waiting Time: " + (sum_wait1/jobsInputArray.length) + " cycles" );
+				System.out.println("Total number of priority changes: "+pri_count1);
 				System.out.println("Actual system time needed to execute all jobs: " + (timeElapsed / 1000000) + " ms");	 
 				
 				}
