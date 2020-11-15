@@ -11,7 +11,9 @@ public class Job {
 	private long waitTime;
 	private long endTime;
 	
+	public int numberOfPriorityChanges;
 	
+
 
 
 	/** parametrized constructor
@@ -167,11 +169,9 @@ public class Job {
 	@Override
 	public String toString() {
 		return "Now executing " + jobName + ". Job length: " + jobLength + " cycles. Current remaining length: " 
-	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority + " end time " +  endTime
-	            +" cycles. " + "wait time: " + Math.abs(waitTime);
+	            + currentJobLength + " cycles. Initial Priority: " + jobPriority + ". Current Priority: " + finalPriority;
 	}
-	
-	
+
 
 	
 	
