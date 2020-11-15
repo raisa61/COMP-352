@@ -18,8 +18,21 @@ TIME COMPLEXITY:
 14)Entry<K,V> remove (k key, V value) => Big-O = O(1)
 15)Entry<K,V> get (int i) => Big-O = O(1)
 
+Omega is logn
 
 SPACE COMPLEXITY:
 
 We let n denote the number of entries in the priority queue at the time an operation
+is executed. The space requirement is O(n). 
+
+
+Priority queue using linked positional list==>
+
+TIME COMPLEXITY: O(n^2) since pq's complexity is n and we multiply that by the number of jobs n so it will be n^2
+
+Omega is logn
+
+SPACE COMPLEXITY:
+
+We let n denote the number of entries in the list at the time an operation
 is executed. The space requirement is O(n). 
