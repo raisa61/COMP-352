@@ -14,9 +14,8 @@ public class Driver {
 		/*
 		 * Prompt user to choose either default values or enter their own
 		 */
-		System.out.println("Welcome to the IntelligentSIDC program by Marwan Jabbour");
 		System.out.println(
-				"Press \n(1) to use the default values: size=2000, threshold = 1000, keyLength=10 generate 100 keys"
+				"Press \n(1) to use the default values: size=2000, threshold = 1000, keyLength=8 generate 100 keys"
 						+ "\n(2) to use your own values");
 		choice = kb.nextInt();
 		if (choice != 1 && choice != 2) {
@@ -28,7 +27,7 @@ public class Driver {
 
 		// User use their own values
 		if (choice == 2) {
-			System.out.println("What is the size (total number of VINs?");
+			System.out.println("What is the size (total number of Keys?");
 			int size = kb.nextInt();
 			mySIDC = new IntelligentSIDC(size);
 
@@ -67,11 +66,11 @@ public class Driver {
 		// add(key,value)
 		System.out.println("Test method add(key,value)- 3 times");
 		System.out.println(
-				"key=123456789, owner=marwan, brand=tesla, dates are: (1, 2, 2000), (4, 3, 1999), (1, 1, 2010), (10, 11, 1989)");
+				"key=123456783, name=Raisa");
 		System.out.println(
-				"key=123456789, owner=Johnathan, brand=GMC, dates are: (1, 2, 2000), (4, 3, 1999), (1, 1, 2010), (10, 11, 1989)");
+				"key=123456782, name=Johnathan");
 		System.out.println(
-				"key=123456789, owner=Raymond, brand=TOKO, dates are: (1, 2, 2000), (4, 3, 1999), (1, 1, 2010), (10, 11, 1989)");
+				"key=123456781, name=Raymond");
 		System.out.println();
 
 	/*	Date d1 = new Date(1, 2, 2000);
@@ -85,9 +84,9 @@ public class Driver {
 		accidents_pass.push(d3);
 		accidents_pass.push(d4);*/
 
-		mySIDC.add("123456789", "Alex");
-		mySIDC.add("123456789", "Johnathan");
-		mySIDC.add("123456789", "Raymond");
+		mySIDC.add("123456783", "Raisa");
+		mySIDC.add("123456782", "Johnathan");
+		mySIDC.add("123456781", "Raymond");
 		sor = mySIDC.allKeys();
 		for (String element : sor) { //
 			Student Student = mySIDC.getValue(element);
@@ -98,10 +97,10 @@ public class Driver {
 		System.out.println();
 
 		// remove(key)
-		System.out.println("Test method: remove(key)-2 times\nkey= 123456789\nLast key");
+		System.out.println("Test method: remove(key)-2 times\nkey= 123456783\nLast key");
 		System.out.println();
 
-		mySIDC.remove("123456789");
+		mySIDC.remove("123456783");
 		mySIDC.remove(sor.getLast());
 
 		sor = mySIDC.allKeys();
@@ -113,10 +112,10 @@ public class Driver {
 
 		System.out.println();
 
-		System.out.print("Value of " + sor.getFirst() + ": ");
+		System.out.print("First value " + sor.getFirst() + ": ");
 
 		System.out.println(mySIDC.getValue(sor.getFirst()));
-		System.out.print("Value of " + sor.getLast() + ": ");
+		System.out.print("Last value  " + sor.getLast() + ": ");
 		System.out.println(mySIDC.getValue(sor.getLast()));
 
 		System.out.println();
@@ -130,21 +129,18 @@ public class Driver {
 		System.out.println(mySIDC.prevKey(sor.getLast()));
 
 		System.out.println();
-		//prevAccids()
-		System.out.println("Test method: prevAccids(): first key");
+		//rangeKey()
+		System.out.println("Test method: rangeKey(key1,key2)");
 		System.out.println();
-		//ArrayList<Date> ss = mySIDC.prevAccids(sor.getFirst());
-		System.out.println(sor.getFirst());
 
-		//System.out.println(ss);
+		//System.out.println(sor.rangeKey());
 
-		//ArrayList<Date> bb = mySIDC.prevAccids("B123456789");
 
-		System.out.println("\nTest method: prevAccids(): B123456789");
+
+		System.out.println("\nTest method: prevAccids(): 123456789");
 		System.out.println();
 		//System.out.println(bb);
 
-		System.out.println("Thanks for using the IntelligentSIDC program by Marwan Jabbour");
 
 		//
 		//
@@ -164,7 +160,6 @@ public class Driver {
 		 * FileOutputStream("Output_From_Input_3.txt")); } catch (FileNotFoundException
 		 * e) { // TODO Auto-generated catch block
 		 * System.out.println("Error has occured, File not found"); System.exit(0); }
-		 * pw.println("Welcome to the IntelligentSIDC program by Marwan Jabbour");
 		 * 
 		 * Scanner kb=null; Scanner kb_1=null;
 		 * 
@@ -238,7 +233,7 @@ public class Driver {
 		 * (mySIDC2.prevAccids("2UGFMKWANWXUZLVHI"));
 		 * 
 		 * 
-		 * pw.println("Thanks for using the IntelligentSIDC program by Marwan Jabbour"); pw.close();
+		 * pw.close();
 		 * 
 		 * /*
 		 * 
@@ -251,7 +246,7 @@ public class Driver {
 		 * pw.println("KeyLength: 17"); pw.println("Generate: 5000 keys\n");
 		 * 
 		 * Scanner kb2 = new Scanner(System.in);
-		 * System.out.println("Welcome to the IntelligentSIDC program by Marwan Jabbour");
+		 * 
 		 * 
 		 * System.out.println("What is the size (total number of VINs?"); int size =
 		 * kb.nextInt(); IntelligentSIDC mySIDC = new IntelligentSIDC(size);
