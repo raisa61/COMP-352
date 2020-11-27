@@ -17,7 +17,7 @@ public class IntelligentSIDC {
 	private DoublyLinkedList records_1 = new DoublyLinkedList();
 
 	// Sample Reference values
-	private static final String alphaNumeric = "0123456789";
+	private static final String alphaNumeric = "123456789";
 	private static final String[] names = { "Raisa", "Johnny", "Jasmine", "Samuel", "David", "Joseph", "Carter",
 			"Owen", "Wyatt", "John", "Jack", "Luke", "Jayden", "Dylan", "Grayson", "Levi", "Isaac", "Gabriel", "Julian",
 			"Mateo", "Anthony", "Jaxon", "Lincoln" };
@@ -331,59 +331,24 @@ public class IntelligentSIDC {
 	/**
 	 * Change ADT from sequence to treemap
 	 */
-	public LinkedList<String> rangeKey(String key1,String key2) {
-		LinkedList<String> sorted = new LinkedList<String>();
-		
-	}
-
-	/**
-	 * 
-	 * @param key_pass The key whose previous accidents will be found
-	 * @return The previous accidents of that key
-	 */
-	/*public ArrayList<Date> prevAccids(String key_pass) {
-
-		Stack<Date> accidents = this.getValue(key_pass).getAccidents();
-		Stack<Date> tmpStack3 = new Stack<Date>();
-
-		Stack<Date> tmpStack1 = new Stack<Date>();*/
-		
-		//Push the elements into tmpStack1 from accidents
-		/*while (!accidents.isEmpty()) {
-			Date tmp = accidents.pop();
-			tmpStack3.push(tmp);
-			while (!tmpStack1.isEmpty() && (tmp.year > tmpStack1.peek().year
-					|| (tmp.year == tmpStack1.peek().year && tmp.month > tmpStack1.peek().month)
-					|| (tmp.year == tmpStack1.peek().year && tmp.month == tmpStack1.peek().month
-							&& tmp.day > tmpStack1.peek().day))) {
-				accidents.push(tmpStack1.pop());
+	public void rangeKey(LinkedList<String> list, String key1,String key2) {
+		//LinkedList<String> ranged_list = new LinkedList<String>();
+		if ((list.contains(key1)) && (list.contains(key2))){
+			
+			for(int i=Integer.parseInt(key1); i<=Integer.parseInt(key2); i++) {
+				 if (this.getValue(Integer.toString(i)) != null) { 
+					 System.out.println(this.getValue(Integer.toString(i)));
+				 }
+		           
+				
 			}
-
-			tmpStack1.push(tmp);
-		}*/
-
-	//	Stack<Date> temp = new Stack<Date>();
-
-		//Push elements back into temp stack
-	/*	while (!tmpStack1.isEmpty()) {
-			temp.push(tmpStack1.pop());
+				
 		}
 
-		ArrayList<Date> tmpStack2 = new ArrayList<Date>();*/
+		
+	}
 
-		//To preserve order push the elements into another temporary stack
-		/*while (!temp.isEmpty()) {
-			tmpStack2.add(temp.pop());
-		}*/
 
-		//Return the elements back into accidents
-		/*while (!tmpStack3.isEmpty()) {
-			accidents.push(tmpStack3.pop());
-		}*/
-
-		//Return the temporary stack 2 that we used to preserve order
-		//return tmpStack2;
 
 	}
 
-//}
