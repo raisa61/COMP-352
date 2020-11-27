@@ -66,11 +66,11 @@ public class Driver {
 		// add(key,value)
 		System.out.println("Test method add(key,value)- 3 times");
 		System.out.println(
-				"key=123456783, name=Raisa");
+				"key=22345678, name=Raisa");
 		System.out.println(
-				"key=123456782, name=Johnathan");
+				"key=42345678, name=Johnathan");
 		System.out.println(
-				"key=123456781, name=Raymond");
+				"key=52345678, name=Raymond");
 		System.out.println();
 
 	/*	Date d1 = new Date(1, 2, 2000);
@@ -84,9 +84,9 @@ public class Driver {
 		accidents_pass.push(d3);
 		accidents_pass.push(d4);*/
 
-		mySIDC.add("123456783", "Raisa");
-		mySIDC.add("123456782", "Johnathan");
-		mySIDC.add("123456781", "Raymond");
+		mySIDC.add("22345678", "Raisa");
+		mySIDC.add("42345678", "Johnathan");
+		mySIDC.add("52345678", "Raymond");
 		sor = mySIDC.allKeys();
 		for (String element : sor) { //
 			Student Student = mySIDC.getValue(element);
@@ -132,247 +132,8 @@ public class Driver {
 		//rangeKey()
 		System.out.println("Test method: rangeKey(key1,key2)");
 		System.out.println();
+		mySIDC.rangeKey(sor, sor.getFirst(), sor.getLast());
 
-		//System.out.println(sor.rangeKey());
-
-
-
-		System.out.println("\nTest method: prevAccids(): 123456789");
-		System.out.println();
-		//System.out.println(bb);
-
-
-		//
-		//
-		//
-		//
-		// The below commented code was used to generate the output files, they have no
-		// purpose
-		// Kindly, ignore them, as I have simply included them as proof that it was I
-		// who generated the output files
-		//
-		//
-		//
-		//
-
-		/*
-		 * PrintWriter pw = null; try { pw = new PrintWriter(new
-		 * FileOutputStream("Output_From_Input_3.txt")); } catch (FileNotFoundException
-		 * e) { // TODO Auto-generated catch block
-		 * System.out.println("Error has occured, File not found"); System.exit(0); }
-		 * 
-		 * Scanner kb=null; Scanner kb_1=null;
-		 * 
-		 * try { kb_1= new Scanner (new FileInputStream ("input_3.txt")); kb= new
-		 * Scanner (new FileInputStream ("input_3.txt"));
-		 * 
-		 * } catch (FileNotFoundException e2) {
-		 * System.out.println("Error has occured, File not found"); System.exit(0); }
-		 * int count=0;
-		 * 
-		 * while (kb_1.hasNextLine()) { count++; kb_1.nextLine(); }
-		 * 
-		 * 
-		 * IntelligentSIDC mySIDC2=new IntelligentSIDC(count); while (kb.hasNextLine()) { String
-		 * temp=kb.nextLine(); String []line=temp.split(" "); for (int
-		 * i=0;i<line.length;i++) { System.out.println (i+" "+line[i]); }
-		 * 
-		 * String VIN=line[0]; mySIDC2.setKeyLength(VIN.length()); String owner=line[1];
-		 * String brand=line[2]; double price=Double.parseDouble(line[3]); String
-		 * day1=line[5]; day1=day1.substring(0, day1.length()-1); String month1=line[7];
-		 * month1=month1.substring(0,month1.length()-1); String year1=line[9]; Date
-		 * d1=new Date
-		 * (Integer.parseInt(day1),Integer.parseInt(month1),Integer.parseInt(year1));
-		 * 
-		 * String day2=line[11]; day2=day2.substring(0, day2.length()-1); String
-		 * month2=line[13]; month2=month2.substring(0,month2.length()-1); String
-		 * year2=line[15]; Date d2=new Date
-		 * (Integer.parseInt(day2),Integer.parseInt(month2),Integer.parseInt(year2));
-		 * 
-		 * 
-		 * 
-		 * String day3=line[17]; day3=day3.substring(0, day3.length()-1); String
-		 * month3=line[19]; month3=month3.substring(0,month3.length()-1); String
-		 * year3=line[21]; System.out.println (day1+" "+month1+" "+year1+
-		 * " "+day2+" "+month2+" "+year2+ " "+day3+" "+month3+" "+year3+ " "); Date
-		 * d3=new Date
-		 * (Integer.parseInt(day3),Integer.parseInt(month3),Integer.parseInt(year3));
-		 * 
-		 * Stack<Date>tempo=new Stack<Date>(); tempo.push(d1); tempo.push(d2);
-		 * tempo.push(d3);
-		 * 
-		 * 
-		 * mySIDC2.add(VIN, owner, brand, price, tempo); }
-		 * 
-		 * pw.println("Output of Input File: input_1.txt"); pw.println
-		 * ("---------------------------------");
-		 * 
-		 * pw.println(); pw.println("Test method getKeyLength()"); pw.println
-		 * (mySIDC2.getKeyLength());
-		 * 
-		 * 
-		 * pw.println(); pw.println("Test method getValue(): 2UGFMKWANWXUZLVHI");
-		 * pw.println("----------------------------------"); pw.println
-		 * (mySIDC2.getValue("2UGFMKWANWXUZLVHI"));
-		 * 
-		 * pw.println("Test method getValue(): 35G11J5WD2S0D2YJG");
-		 * pw.println("----------------------------------"); pw.println
-		 * (mySIDC2.getValue("35G11J5WD2S0D2YJG"));
-		 * 
-		 * 
-		 * pw.println(); pw.println("Test method nextKey(): 2UGFMKWANWXUZLVHI");
-		 * pw.println("----------------------------------"); pw.println
-		 * (mySIDC2.nextKey("2UGFMKWANWXUZLVHI"));
-		 * 
-		 * pw.println(); pw.println("Test method prevKey(): 35G11J5WD2S0D2YJG");
-		 * pw.println("----------------------------------"); pw.println
-		 * (mySIDC2.prevKey("35G11J5WD2S0D2YJG"));
-		 * 
-		 * pw.println(); pw.println("Test method prevAccids(): 2UGFMKWANWXUZLVHI");
-		 * pw.println("----------------------------------"); pw.println
-		 * (mySIDC2.prevAccids("2UGFMKWANWXUZLVHI"));
-		 * 
-		 * 
-		 * pw.close();
-		 * 
-		 * /*
-		 * 
-		 * 
-		 * 
-		 * 
-		 * pw.println("Case 7"); pw.println("--------"); pw.println();
-		 * 
-		 * pw.println("Size: 100000"); pw.println("Threshold: 8000");
-		 * pw.println("KeyLength: 17"); pw.println("Generate: 5000 keys\n");
-		 * 
-		 * Scanner kb2 = new Scanner(System.in);
-		 * 
-		 * 
-		 * System.out.println("What is the size (total number of VINs?"); int size =
-		 * kb.nextInt(); IntelligentSIDC mySIDC = new IntelligentSIDC(size);
-		 * 
-		 * System.out.
-		 * println("What is the threshold that will determine if we will use Data Structure or Sequence?"
-		 * ); int threshold = kb.nextInt(); mySIDC.setThreshold(threshold);
-		 * 
-		 * System.out.println("What is the key length?"); int keylength = kb.nextInt();
-		 * mySIDC.setKeyLength(keylength);
-		 * 
-		 * System.out.println("generate, how many keys"); int gen = kb.nextInt();
-		 * mySIDC.generate(gen);
-		 * 
-		 * LinkedList<String> sor = mySIDC.allKeys();
-		 * pw.println("Test method allKeys()"); pw.println();
-		 * 
-		 * System.out.println("allkeys"); for (String element : sor) { Student Student =
-		 * mySIDC.getValue(element); String own = Student.getOwner(); String bra =
-		 * Student.getBrand(); double pr = Student.getPrice(); // ArrayList<Date> acc =
-		 * mySIDC.prevAccids(element);
-		 * 
-		 * // System.out.println(element); pw.print(element + "   owner: " + own +
-		 * "   brand: " + bra + "   price: $" + pr + " "); pw.println();
-		 * 
-		 * } pw.println(); System.out.println(); pw.println(
-		 * "Test method add(key,value) : \n\nkey=A123456789 \nowner= Alex \nbrand=tesla \nprice=98765 \ndate1= 1/2/2000\ndate2= 4/3/1999\ndate3=1/1/2010\ndate4=10/11/1989\n"
-		 * ); System.out.println("add(key,value)"); pw.println(
-		 * "Test method add(key,value) : \n\nkey=B123456789 \nowner= Johnathan \nbrand=GMC \nprice=11111 \ndate1= 1/2/2000\ndate2= 4/3/1999\ndate3=1/1/2010\ndate4=10/11/1989\n"
-		 * ); System.out.println("add(key,value)"); Date d1 = new Date(1, 2, 2000); Date
-		 * d2 = new Date(4, 3, 1999); Date d3 = new Date(1, 1, 2010); Date d4 = new
-		 * Date(10, 11, 1989);
-		 * 
-		 * Stack<Date> accidents_pass = new Stack<Date>(); accidents_pass.push(d1);
-		 * accidents_pass.push(d2); accidents_pass.push(d3); accidents_pass.push(d4);
-		 * 
-		 * mySIDC.add("A123456789", "Alex", "tesla", 98765, accidents_pass);
-		 * mySIDC.add("B123456789", "Johnathan", "GMC", 11111, accidents_pass);
-		 * mySIDC.add("C123456789", "boy", "toyo", 1111, accidents_pass);
-		 * mySIDC.add("D123456789", "boy", "toyo", 1111, accidents_pass); pw.println();
-		 * sor = mySIDC.allKeys(); for (String element : sor) { //
-		 * System.out.println(element); Student Student = mySIDC.getValue(element);
-		 * String own = Student.getOwner(); String bra = Student.getBrand(); double pr =
-		 * Student.getPrice(); // ArrayList<Date> acc = mySIDC.prevAccids(element);
-		 * System.out.println(element); pw.print(element + "   owner: " + own +
-		 * "   brand: " + bra + "   price: $" + pr + " ");
-		 * 
-		 * pw.println();
-		 * 
-		 * } pw.println();
-		 * 
-		 * System.out.println();
-		 * 
-		 * pw.println("Test method removeKey(): key=A123456789");
-		 * pw.println("Test method removeKey(): key=last key"); pw.println();
-		 * 
-		 * System.out.println("remove(key)");
-		 * 
-		 * mySIDC.remove("A123456789"); mySIDC.remove(sor.getLast());
-		 * 
-		 * sor = mySIDC.allKeys(); for (String element : sor) { //
-		 * System.out.println(element); Student Student = mySIDC.getValue(element);
-		 * String own = Student.getOwner(); String bra = Student.getBrand(); double pr =
-		 * Student.getPrice(); // ArrayList<Date> acc = mySIDC.prevAccids(element);
-		 * 
-		 * // System.out.println(element); pw.print(element + "   owner: " + own +
-		 * "   brand: " + bra + "   price: $" + pr + " "); pw.println();
-		 * 
-		 * }
-		 * 
-		 * System.out.println(); pw.println();
-		 * pw.println("Test method getValue(): first key");
-		 * pw.println("----------------------------------");
-		 * 
-		 * pw.println();
-		 * 
-		 * System.out.println("getvalue"); System.out.print("Value of " + sor.getFirst()
-		 * + ": "); pw.println("Value of " + sor.getFirst() + ": ");
-		 * pw.println(mySIDC.getValue(sor.getFirst())); pw.println();
-		 * 
-		 * pw.println("Test method getValue(): last key");
-		 * pw.println("----------------------------------"); pw.println();
-		 * 
-		 * pw.println("Value of " + sor.getLast() + ": ");
-		 * pw.println(mySIDC.getValue(sor.getLast()));
-		 * 
-		 * System.out.println(mySIDC.getValue(sor.getFirst()));
-		 * System.out.print("Value of " + sor.getLast() + ": ");
-		 * System.out.println(mySIDC.getValue(sor.getLast()));
-		 * 
-		 * pw.println(); pw.println("Test method nextKey(): first key");
-		 * pw.println("----------------------------------");
-		 * pw.println(mySIDC.nextKey(sor.getFirst()));
-		 * 
-		 * System.out.println(); System.out.println("nextkey");
-		 * System.out.println(mySIDC.nextKey(sor.getFirst()));
-		 * System.out.println(mySIDC.nextKey(sor.getLast()));
-		 * 
-		 * pw.println(); pw.println("Test method prevKey(): last key");
-		 * pw.println("----------------------------------");
-		 * pw.println(mySIDC.prevKey(sor.getLast()));
-		 * 
-		 * System.out.println(); System.out.println("prevkey");
-		 * System.out.println(mySIDC.prevKey(sor.getLast()));
-		 * System.out.println(mySIDC.prevKey(sor.getFirst()));
-		 * 
-		 * pw.println(); pw.println("Test method prevAccids(): first key");
-		 * pw.println("----------------------------------");
-		 * 
-		 * System.out.println(); System.out.println("prevAccids"); ArrayList<Date> ss =
-		 * mySIDC.prevAccids(sor.getFirst()); System.out.println(sor.getFirst());
-		 * 
-		 * pw.print(ss); System.out.println(ss);
-		 * 
-		 * for (Date d : ss) { System.out.println(d); }
-		 * 
-		 * pw.println(); pw.println();
-		 * 
-		 * pw.println("Test method prevAccids(): key: B123456789");
-		 * pw.println("----------------------------------");
-		 * 
-		 * ArrayList<Date> bb = mySIDC.prevAccids("B123456789"); pw.print(bb);
-		 * 
-		 * for (Date d : bb) { System.out.println(d); } pw.println();
-		 * pw.println("Thanks for using the IntelligentSIDC program"); pw.close();
-		 */
 	}
 
 }
