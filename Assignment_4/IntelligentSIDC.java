@@ -4,7 +4,7 @@ public class IntelligentSIDC {
 
 	// Properties of IntelligentSIDC
 	private int threshold;
-	private int keyLength;
+	private int keyLength=8;
 	private int size = 0;
 	private int max_size;
 	// We stored values in a sequence at first
@@ -326,6 +326,14 @@ public class IntelligentSIDC {
 			records_2.put(key_temp, Student_temp);
 		}
 		sequence_first = false;
+	}
+	
+	/**
+	 * Change ADT from sequence to treemap
+	 */
+	public LinkedList<String> rangeKey(String key1,String key2) {
+		LinkedList<String> sorted = new LinkedList<String>();
+		
 	}
 
 	/**
