@@ -73,17 +73,6 @@ public class Driver {
 				"key=52345678, name=Raymond");
 		System.out.println();
 
-	/*	Date d1 = new Date(1, 2, 2000);
-		Date d2 = new Date(4, 3, 1999);
-		Date d3 = new Date(1, 1, 2010);
-		Date d4 = new Date(10, 11, 1989);
-
-		Stack<Date> accidents_pass = new Stack<Date>();
-		accidents_pass.push(d1);
-		accidents_pass.push(d2);
-		accidents_pass.push(d3);
-		accidents_pass.push(d4);*/
-
 		mySIDC.add("22345678", "Raisa");
 		mySIDC.add("42345678", "Johnathan");
 		mySIDC.add("52345678", "Raymond");
