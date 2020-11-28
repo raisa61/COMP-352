@@ -99,8 +99,6 @@ public class IntelligentSIDC {
 				// Generate random values for Student and for SIDC
 				String name = names[((int) (Math.random() * names.length))];
 				System.out.println(name);
-				//Stack<Date> acc = new Stack<Date>();
-				//acc = new Date().randomDates();
 				Student temp = new Student(name);
 				String temp_SIDC = generateSIDC(keyLength);
 				if (!records_2.containsKey(temp_SIDC)) {
@@ -120,8 +118,6 @@ public class IntelligentSIDC {
 			for (int i = 0; i < n; i++) {
 				// Generate random values for Student and for SIDC
 				String name = names[((int) (Math.random() * names.length))];
-				//Stack<Date> acc = new Stack<Date>();
-				//acc = new Date().randomDates();
 				Student temp = new Student(name);
 				String temp_SIDC = generateSIDC(keyLength);
 				if (size == 0) {
