@@ -193,9 +193,6 @@ public class IntelligentSIDC {
 	 * 
 	 * @param key_pass The SIDC
 	 * @param owner_pass The owner
-	 * @param brand_pass The brand
-	 * @param price_pass The price
-	 * @param accidents_pass The accidents as a stack
 	 * Adds a Student with these values
 	 */
 
