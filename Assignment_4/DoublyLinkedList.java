@@ -14,7 +14,7 @@ public class DoublyLinkedList {
 
 		/**
 		 * 
-		 * @param key_pass   The VIN
+		 * @param key_pass   The SIDC
 		 * @param value_pass The Student
 		 * @param p          The previous node
 		 * @param n          The next node
@@ -149,8 +149,8 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass   VIN
-	 * @param value_pass Student of VIN Adds this element to front of list
+	 * @param key_pass   SIDC
+	 * @param value_pass Student of SIDC Adds this element to front of list
 	 */
 	public void addFirst(String key_pass, Student value_pass) {
 		addBetween(key_pass, value_pass, header, header.getNext()); // place just after the header
@@ -158,7 +158,7 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass   VIN
+	 * @param key_pass   SIDC
 	 * @param value_pass Student of VIN Adds this element to end of list
 	 */
 	public void addLast(String key_pass, Student value_pass) {
@@ -185,7 +185,7 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass    VIN to be added
+	 * @param key_pass    SIDC to be added
 	 * @param value_pass  Student to be added
 	 * @param predecessor Previous node
 	 * @param successor   Next node Adds this elements between nodes
@@ -216,8 +216,8 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass The VIN to be checked for
-	 * @return If the VIN is found
+	 * @param key_pass The SIDC to be checked for
+	 * @return If the SIDC is found
 	 */
 	public boolean contains(String key_pass) {
 		int i = 1;
@@ -244,7 +244,7 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @return The doubly linked list lexicographically sorted by VIN
+	 * @return The doubly linked list lexicographically sorted by SIDC 
 	 */
 	public DoublyLinkedList sortList() {
 		Node current = null, index = null;
@@ -307,7 +307,7 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass The VIN whose value will be returned
+	 * @param key_pass The SIDC whose value will be returned
 	 * @return The Student with that key
 	 */
 	public Student getValueFromKey(String key_pass) {
@@ -329,8 +329,8 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass VIN
-	 * @return The next VIN in the list
+	 * @param key_pass SIDC
+	 * @return The next SIDC in the list
 	 */
 	public String nextKey(String key_pass) {
 		Node current = header;
@@ -361,8 +361,8 @@ public class DoublyLinkedList {
 
 	/**
 	 * 
-	 * @param key_pass VIN
-	 * @return The previous VIN in the list
+	 * @param key_pass SIDC
+	 * @return The previous SIDC in the list
 	 */
 	public String prevKey(String key_pass) {
 		Node current = trailer;
@@ -380,25 +380,7 @@ public class DoublyLinkedList {
 		return null;
 	}
 
-	/**
-	 * 
-	 * @param date_pass The date whose previous accidents will be found
-	 * @return ArrayList of previous accidents
-	 */
-	/*public ArrayList<String> prevAccids(Date date_pass) {
-		ArrayList<String> accidents = new ArrayList();
-		Node current = trailer;
-		if (trailer == null)
-			return null;
-		else {
-			for (current = trailer.prev; current.prev != null; current = current.prev) {
-				if (current.getValue().toString().equals(date_pass.toString())) {
-					accidents.add(current.getKey());
-				}
-			}
-		}
-		return accidents;
-	}*/
+
 
 	/**
 	 * 
