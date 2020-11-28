@@ -329,7 +329,7 @@ public class IntelligentSIDC {
 	}
 	
 	/**
-	 * Change ADT from sequence to treemap
+	 * Doing the range method
 	 */
 	public void rangeKey(LinkedList<String> list, String key1,String key2) {
 		//LinkedList<String> ranged_list = new LinkedList<String>();
