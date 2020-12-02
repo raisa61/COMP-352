@@ -330,7 +330,7 @@ public class IntelligentSIDC {
 			
 			for(int i=Integer.parseInt(key1); i<=Integer.parseInt(key2); i++) {
 				 if (this.getValue(Integer.toString(i)) != null) { 
-					 System.out.println(this.getValue(Integer.toString(i)));
+					 System.out.println((Integer.toString(i)) + " " + this.getValue(Integer.toString(i)));
 				 }
 		           
 				
@@ -344,4 +344,3 @@ public class IntelligentSIDC {
 
 
 	}
-
