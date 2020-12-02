@@ -1,0 +1,175 @@
+(1)
+Complexity for Doubly linked list ==>O(1)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm setThreshold (threshold_pass)
+   Input threshold
+   Output nothing
+	if threshold_pass < 100 or threshold_pass > 500000 then
+		display error and exit program
+	else
+		threshold<-- threshold_pass
+
+(2)
+Complexity for Doubly linked list ==>O(n^2)
+Complexity for AVL Tree ==>O(nlogn)
+
+Algorithm generate (n)
+ Input how many keys to generate
+ Output nothing
+	if size+n>max_size then
+		display error and return
+	if GreatherThanThreshold(n + size) then 
+		if sequence_first=true then
+			changeADT()
+		for i<--0 to n-1 do
+			name<-- names[((int) (Math.random() * names.length))]
+			temp<-- new Student (name)
+			temp_SIDC<--generateSIDC(keyLength)
+		if ! records_2.containsKey(temp_SIDC) then
+			records_2.put(temp_SIDC, temp)
+			increment size
+		else if records_2.containsKey(temp_SIDC) then
+			decrement i
+		continue
+		else if ! GreatherThanThreshold(n + size) then
+		sequence_first<--true
+		for i<--0 to n-1 do
+			name<--names[((int) (Math.random() * names.length))]
+			temp<-- new Student (name)
+			temp_SIDC<--generateSIDC(keyLength)
+		if size=0 then
+			records_1.addFirst(temp_SIDC, temp)
+			increment size
+			else if ! records_1.contains(temp_SIDC) then
+			records_1.addFirst(temp_SIDC, temp)
+			increment size
+		else if records_1.contains(temp_SIDC) then
+			decrement i
+		continue
+	sort()
+
+(3)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm generateSIDC (keyLength)
+	Input length of key to be generated
+	Output random key with inputted length
+		sb<--new StringBuilder()
+		while keyLength-- !=0 do
+			ch<-- (int) (Math.random() * alphaNumeric.length())
+			sb.append (alphaNumeric.charAt(ch))
+	return sb.toString()
+
+(4)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm allKeys ()
+	Input nothing
+	Output String LinkedList with keys in ascending order 
+		if GreatherThanThreshold(size) then
+			keys<--records_2.keySet()
+		sorted.addAll(keys)
+		else
+			sorted<--records_1.allKeys()
+	return sorted
+
+(5)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm add (key_pass, name_pass)
+	Input the SIDC (key_pass) and the student 
+	Output nothing
+		if size=max_size then
+			Display error and return
+	student_pass<--new Student (name_pass)
+		if GreatherThanThreshold(size) then
+			if records_2.containsKey(key_pass) then
+				Display that key already is there
+			else
+				if sequence_first=true then
+					changeADT()
+			records_2.put(key_pass, name_pass)
+			increment size
+		else if ! GreatherThanThreshold(size) then
+			sequence_first<--true
+			if records_1.contains(key_pass) then
+				Display that key already is there
+				records_1.addHere (key_pass, name_pass)
+				increment size
+
+(6)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm remove (key_pass)
+	Input the Student
+	Output nothing
+		if GreatherThanThreshold(size) then
+			if records_2.remove(key_pass)!=null then
+				decrement size
+			else 
+				display error has occurred
+		else if ! GreatherThanThreshold(size) then
+			if records_1.delete(key_pass) then
+				decrement size
+			else
+				display error has occurred
+
+(7)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm getValue (key_pass)
+	Input the SIDC 
+	Output vehicle of the given SIDC
+		if GreatherThanThreshold(size) then
+			return records_2.get (key_pass)
+		else
+			return records_1.getValueFromKey (key_pass)
+
+(8)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm nextKey (key_pass)
+	Input the SIDC
+	Output the SIDC after the given SIDC
+		if GreatherThanThreshold(size) then
+			if records_2.higherEntry(key_pass) = null then
+				return null
+		return records_2.higherEntry(key_pass).getKey()
+		else
+			return records_1.nextKey(key_pass)
+
+(9)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm prevKey (key_pass)
+	Input the SIDC
+	Output the SIDC before the given SIDC
+		if GreatherThanThreshold(size) then
+			if records_2.lowerEntry(key_pass) = null then
+			return null
+		return records_2.lowerEntry(key_pass).getKey()
+		else
+		return records_1.prevKey(key_pass)
+
+(10)
+Complexity for Doubly linked list ==>O(n)
+Complexity for AVL Tree ==>O(1)
+
+Algorithm rangeKey(list, key1, key2)
+	Input A list and two keys
+	Output the ranged list
+		if(list.contains(key1)) and (list.contains(key2)) then
+			for i<--Integer.parseInt(key1) to i<= Integer.parseInt(key2) do
+				if (this.getvalue(Integer.toString(i)!=null) then
+					Print(this.getValue(Integer.toString(i))
+
+
+
