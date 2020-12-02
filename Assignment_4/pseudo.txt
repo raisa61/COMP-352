@@ -125,7 +125,7 @@ Complexity for AVL Tree ==>O(1)
 
 Algorithm getValue (key_pass)
 	Input the SIDC 
-	Output vehicle of the given SIDC
+	Output Student of the given SIDC
 		if GreatherThanThreshold(size) then
 			return records_2.get (key_pass)
 		else
