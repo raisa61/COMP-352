@@ -10,7 +10,7 @@ will indicate that we have to switch our ADT using an auxiliary method called ch
 
 
 Why did you choose those Data Structures? 
-from assignment 3 we know IntelligentSIDC adapts to their usage and keeps the balance between memory and runtime requirements. 
+we know IntelligentSIDC adapts to their usage and keeps the balance between memory and runtime requirements. 
 For instance, if an IntelligentSIDC contains only a small number of entries (e.g., few hundreds), it might use less memory overhead but slower (sorting) algorithms. 
 On the other hand, if the number of contained entries is large (greater than 1000 or even in the range of tens of thousands of elements), 
 it might have a higher memory requirement but faster (sorting) algorithms. 
