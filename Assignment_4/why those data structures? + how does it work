@@ -4,15 +4,17 @@ Throughout the code the variable size keeps track of how many entries are in the
 If the number of entries is less than the threshold, then we use a sequence: a double linked list. 
 We chose to modify the doubly linked list class and make use of the node class for some of our methods. 
 If the number of entries exceeds the threshold, then we must switch the ADT and use a TreeMap. 
-We use the TreeMap that is provided by Java itself. 
 If we generate more keys than the threshold, then we would not have to use the sequence at all! 
 However, if we start with a small number of entries, then exceed the threshold, the Boolean variable sequence_first 
 will indicate that we have to switch our ADT using an auxiliary method called changeADT(). 
 
 
 Why did you choose those Data Structures? 
-“IntelligentSIDC adapts to their usage and keeps the balance between memory and runtime requirements. 
-For instance, if an IntelligentSIDC contains only a small number of entries (e.g., few hundreds), it might use less memory overhead but slower (sorting) algorithms. On the other hand, if the number of contained entries is large (greater than 1000 or even in the range of tens of thousands of elements), it might have a higher memory requirement but faster (sorting) algorithms.”-assignment 3 
+from assignment 3 we know IntelligentSIDC adapts to their usage and keeps the balance between memory and runtime requirements. 
+For instance, if an IntelligentSIDC contains only a small number of entries (e.g., few hundreds), it might use less memory overhead but slower (sorting) algorithms. 
+On the other hand, if the number of contained entries is large (greater than 1000 or even in the range of tens of thousands of elements), 
+it might have a higher memory requirement but faster (sorting) algorithms. 
+
 In our program, the doubly linked list is a perfect match for the first data structure. 
 Simply because the space needed is exactly equal to the number of entries stored in the IntelligentSIDC. 
 In this case, it is at a bare minimum. And for the second data structure, a TreeMap is a perfect implementation 
